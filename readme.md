@@ -9,5 +9,7 @@ https://github.com/xaositectt/git-lesson-repository
 
 https://github.com/greenfox-academy/please-syllabus
 
+https://github.com/xaositectt/xaositectt.github.io/tree/master
+
 
 [please corsac syllabus](https://github.com/greenfox-academy/please-syllabus)
