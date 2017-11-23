@@ -1,4 +1,41 @@
-body{
-   
+div {
     
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    font-size: 50px;
+    font-family: Arial;
+    color: #fff;
+    line-height: 140px;
+    text-align: center;
+    
+    
+      
+      
+}
+
+.first {
+    background-color:#b90ceb;
+    
+}
+
+.blue {
+    background-color:#0cebde;
+    
+}
+
+.sixth {
+    background-color:#ebbe0c;
+}
+
+.first, .second, .third {
+    display: inline-block;
+    margin-bottom:10px;
+}
+
+
+
+.fourth, .fifth, .sixth {
+    display: inline-block;
+
 }

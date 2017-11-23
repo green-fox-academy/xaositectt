@@ -1,9 +1,33 @@
-body{
-   
+body {
     
+    font-family: Calibri;
 }
+
+h1 { color:#ff6347;
+   
+}
+
+h2 {
+    color:#8a2be2;
+}
+
+ol li:nth-child(1), ol li:nth-child(2), ol li:nth-child(3)  {
+    color:#ff3fff;   
+}
+
+ol li:nth-child(4) {
+    text-decoration: underline;   
+}
+
+
+
+
 
 ul {
     list-style-type: square;
     
+}
+
+ol {
+    list-style-type: upper-roman;
 }
