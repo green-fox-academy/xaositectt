@@ -1,0 +1,36 @@
+p{ 
+    width: 308px;
+    height: 88px;
+    border-style: solid;
+    border-color:#4285F4;
+    margin:0;
+    font-size: 36px;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 88px;
+}
+
+p.first{
+    border-width:16px 16px 0px 16px;
+    background-color:#e67676;
+}
+
+p.second{
+    border-width:0px 16px 0px 16px;	
+     background-color:#f2f062;
+}
+
+p.third{
+    border-width:0px 16px 0px 16px;
+    background-color:#a9e6e6;
+}
+
+
+p.fourth{
+    border-width:0px 16px 16px 16px;
+    background-color:#7692e4;
+}
+
+
