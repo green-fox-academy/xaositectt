@@ -1,0 +1,51 @@
+body {
+    background-color:white;
+}
+
+
+
+div{
+    
+    
+    width: 200px;
+    color:white;
+    text-align:center;
+    font-size: 20px;
+    margin:10px;
+    padding:1em;
+   
+    
+}
+
+div.e1 {
+    
+    background-color: tomato;
+    background-image: url("https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/ui-development/sitebuild-basics/duck.png?raw=true");
+    background-repeat: no-repeat;
+    background-size:30%;
+    background-position: left center;
+       
+}
+
+
+div.e2 {
+   
+    background-color:mediumpurple;
+    background-image: url("https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/ui-development/sitebuild-basics/duck.png?raw=true");
+    background-repeat: no-repeat;
+    background-size:50%;
+    background-position: center center;
+    
+}
+
+
+div.e3 {
+   
+    background-color:dimgrey;
+    background-image:url("https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/ui-development/sitebuild-basics/duck.png?raw=true");
+    background-repeat: no-repeat;
+    background-size:10%;
+    background-position: right bottom;
+    
+    
+}

@@ -1,0 +1,290 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+}
+
+p {
+    font-family:Arial;
+    font-weight:lighter;
+    font-size:80%;
+    line-height:100%;
+    margin-top:5px;
+    margin-bottom:5px;
+    color: #47505e;
+}
+
+p.i_sign {
+    font-weight:bold;
+}
+
+p.focim {
+    font-size:25px;
+    line-height:60px;
+}
+
+p.feher {
+    background-color:#79818e;
+    padding:0.3em;
+    color:lightblue;
+    border-radius:3px;
+}
+
+p.dim {
+    color:#808b99;
+    opacity:90%;
+    margin-top:6px;
+    
+}
+
+input {
+    width:100%;
+    height:25px;
+    border-radius:3px;
+    border:solid 1px #868d99;
+
+
+}
+
+input[type=radio], input[type=checkbox] {
+    margin:0;
+    margin-top:4px;
+    border: 0px;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+select{
+  color: grey;
+}
+
+
+
+label, .link {
+    font-family:Arial;
+    font-weight:bold;
+    font-size: 0.6em; 
+    vertical-align:middle;
+    color: #47505e;
+    font-family: Arial;
+    margin-right:5px;
+
+
+}
+
+
+button {
+    width:200px;
+    height:40px;
+    font-family: Arial;
+    font-weight: bold;
+    border-radius:3px;
+    background-color: #eaf1fc;
+    color: #47505e;
+    line-height:40px;
+    box-shadow:-0.5px .5px 0.0 0.0px #255290,
+               -1.5px .8px 0.0 0.0px #255290,
+               -1.5px 1.0px 0.0 0.0px #255290,
+               -2.0px 1.3px 0.0 0.0px #255290,
+               -2.5px 1.5px 0.0 0.0px #255290,
+               -3.0px 1.8px 0.0 0.0px #255290,
+                  -4.5px 3.5px 3.0px 0.0px rgba(96,96,96,0.5);
+  
+    transition:.1s ease-in background
+}
+
+button:hover{
+  background:#6a9fe5;
+  
+  
+  left:2px;
+  bottom:1px;
+    box-shadow:-0.5px .5px 0.0 0.0px #255290,
+               -1.5px .8px 0.0 0.0px #255290,
+               -1.5px 1.0px 0.0 0.0px #255290,
+               -2.0px 1.3px 0.0 0.0px #255290,
+               -2.5px 1.5px 0.0 0.0px #255290,
+               -3.0px 1.8px 0.0 0.0px #255290,
+               -3.5px 2.0px 0.0 0.0px #255290,
+               -4.0px 2.3px 0.0 0.0px #255290,
+               -4.5px 2.5px 0.0 0.0px #255290,
+                  -5.5px 3.5px 4.0px 1.0px rgba(96,96,96,0.5);
+  
+    transition:.1s ease-out background;
+   
+    
+}
+
+
+#house {
+    width:100%;
+    height:23px;
+    border-radius:3px;
+    border:solid 1px #868d99;
+    margin-top:3px;
+    margin-bottom:3px;
+}
+
+
+
+
+
+div.y1 {
+    padding-left:0.3em;
+}
+
+
+
+div.back {
+
+    background-color:#c4d5ef;
+    width: 50%;
+    margin-left:25%;
+    display:flex;
+    padding-top:20px;
+    padding-bottom:20px;
+    flex-direction:column;
+
+
+}
+
+div.red {
+    width:80%;
+    background-color:#c4d5ef
+    display:flex;
+    margin-left:10%;
+    
+}
+
+div.r1 {
+    margin-top:10px;
+    height:60px;
+
+}
+
+
+div.r2 {
+    margin-top:10px;
+    height:290px;
+    display:flex;
+    flex-direction:row;
+
+}
+
+div.r3 {
+    margin-top:0px;
+    height:350px;
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+div.yellow {
+    background-color:#c4d5ef;
+
+}
+
+
+div.y1, div.y3 {
+
+    width:100%;
+    margin:1px;
+
+}
+
+div.y2 {
+
+    width:50%;
+    margin:1px;
+    display:flex;
+    flex-direction:column;
+
+}
+
+div.y3 {
+    height:120px;
+    margin-top:10px;
+    background-color:#c4d5ef;
+    display:flex;
+    flex-direction:column;
+}
+
+div.black {
+    /*border:solid 0.1px black;*/
+    width:100%;
+    display:flex;
+
+}
+
+div.b1 {
+    height:50px;
+    margin-top:0%;
+    display:flex;
+    flex-direction:row;
+
+}
+
+
+div.b2 {
+    height:150px;
+    margin-top:0%;
+    display:flex;
+    flex-direction:column;
+
+}
+
+div.b3, div.b4 {
+    /*border:solid 0.1px black;*/
+    width:50%;
+
+}a
+
+div.checks {
+    display:flex;
+    flex-direction:row;
+
+}
+
+div.black.check {
+    width:50%;
+    
+    display:flex;
+    flex-direction:column;
+}
+
+.bot_buttons {
+    display:flex;
+    flex-direction:row;
+    
+}
+
+.bottom_right {
+    width:100%;
+   position: relative;
+    color:#c4d5ef;
+      
+    
+}
+
+.butt {
+    margin-top:30px;
+    
+}
+
+.save {
+    width:180px;
+    background-color: #47505e;
+    color:white;
+    
+    
+}
+
+.delete {
+   float:right;
+    width:160px;
+    
+}
+
+
