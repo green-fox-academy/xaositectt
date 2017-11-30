@@ -88,7 +88,7 @@ public class Map_2 {
                 //parseDouble csak stringgel tud dolgozni szóval először stringgé kell tenni
 
                 ageSum=ageSum+specAge;
-                
+
 
                 }
 
