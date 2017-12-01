@@ -15,16 +15,23 @@ public class GuessMyNumber {
         int maxNum = input.nextInt();
         int Number = (int) (Math.random() *maxNum);
         System.out.println("Guess the number I've thought of!");
-        int i =1;
+        int i=0;
+        int life=3;
         while (i < 10){
             System.out.println("Make a guess.");
             int guess = input.nextInt();
-            if (guess < Number)
+            if (guess < Number && life>0)
             {
+                life=life-1;
                 System.out.println("The stored number is higher");
             }
-            else if (guess > Number){
+            else if (guess > Number && life>0){
+                life=life-1;
                 System.out.println("The stried number is lower");
+            }
+            else if (life ==0) {
+                i=11;
+                System.out.println("You have no more lives left.");
             }
             else {
                 i= 11;

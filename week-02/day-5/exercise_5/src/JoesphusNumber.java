@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class JoesphusNumber {
@@ -11,12 +12,42 @@ public class JoesphusNumber {
   //if it's an odd number where 2n+1 n is odd it flips once
   //if it's an odd number where 2n+1 n is evem it keeps flipping until the whole thing becomes even
 
+  //maradékos osztás a megmaradt sor és a sor eredeti hossza közt azt adja meg hogy hányadikat kell megölni!
+
 
   public static void main(String[] args) {
     Scanner input = new Scanner (System.in);
+    System.out.println("How many people are in the circle?");
     int maxNum = input.nextInt();
+    System.out.println("So the list of people is here:");
+    ArrayList<Integer> inputList= peopleList(maxNum);
+    System.out.println(peopleList(maxNum));
+    System.out.println(josephus(inputList, 0));
 
-    
+
+
+
 
   }
+
+  public static ArrayList<Integer> peopleList(int maxNumber) {
+    ArrayList<Integer> numList = new ArrayList<>();
+    for (int i=0; i < maxNumber; i++) {
+      numList.add(i+1);
+    }
+    return numList;
+  }
+
+  public static ArrayList<Integer> josephus(ArrayList<Integer> inputList, int position) {
+    int a=0;
+    while (inputList.size()>1) {
+
+
+      inputList.remove(inputList.size()%(inputList.size()-position-a-1));
+
+
+    }
+    return inputList;
+  }
+
 }
