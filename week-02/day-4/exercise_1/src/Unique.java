@@ -31,12 +31,8 @@ public class Unique {
 
 
     public static ArrayList<Integer> unique(ArrayList<Integer> input) {
-
         ArrayList<Integer> result = new ArrayList<Integer>();
-
         result.add(input.get(0));
-
-
         for (int i = 1; i < input.size(); i++) {
             if (result.contains(input.get(i)) == false) {
                 result.add(input.get(i));

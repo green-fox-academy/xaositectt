@@ -59,15 +59,11 @@ public class DrawDiamond {
             //bottom pyramid lines with a loop
 
             for (int n = 1; n <= bottom; n = n + 1) {
-
                 //creating the number of stars and the number of spaces
                 int starNum = 2 * bottom - (2 * n - 1);
                 int spaceNum = n - 1;
-
                 String space = String.join("", Collections.nCopies(spaceNum, " "));
                 String row = String.join("", Collections.nCopies(starNum, "*"));
-
-
                 System.out.println(String.join("", space, row));
 
 
@@ -107,15 +103,11 @@ public class DrawDiamond {
             //bottom pyramid lines with a loop
 
             for (int n = 1; n <= bottom; n = n + 1) {
-
                 //creating the number of stars and the number of spaces
                 int starNum = 2 * bottom - ((2 * (n - 1))+1);
                 int spaceNum = n;
-
                 String space = String.join("", Collections.nCopies(spaceNum, " "));
                 String row = String.join("", Collections.nCopies(starNum, "*"));
-
-
                 System.out.println(String.join("", space, row));
 
 

@@ -27,19 +27,13 @@ public class Map_1 {
 
 
         String var= map.get(3);
-        System.out.println("Value at index 2 is: "+var);
-        System.out.println(notSoCrypticMessage[1]);
-
+        //System.out.println("Value at index 2 is: "+var);
+        //System.out.println(notSoCrypticMessage[1]);
         for (int i =0; i < notSoCrypticMessage.length; i++)
         {
             String code = map.get(notSoCrypticMessage[i]);
             System.out.println(code);
-
         }
-
         System.out.println(out);
-
-
     }
-
 }

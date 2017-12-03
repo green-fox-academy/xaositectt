@@ -13,10 +13,10 @@ public class ArmstrongNumber {
     //System.out.println(digitsArray(myNumber));
     System.out.println(isArmstrong(myNumber));
   }
+
   public static int digitsNthSum(int input) {
     ArrayList<Integer> myDigits = digitsArray(input);
     System.out.println("My digits are: " +myDigits);
-
     for (int i=0; i < myDigits.size(); i++) {
       double digitNth = Math.pow(myDigits.get(i), myDigits.size());
       myDigits.set(i, (int)digitNth);
@@ -28,6 +28,7 @@ public class ArmstrongNumber {
     }
     return total;
   }
+
   public static ArrayList<Integer> digitsArray(int inputNum) {
     String inputNumString = String.valueOf(inputNum);
     ArrayList<Integer> digits= new ArrayList<>();
