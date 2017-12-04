@@ -5,11 +5,9 @@ import java.io.*;
 public class EncodedLines {
   public static void main(String[] args) {
     // Create a method that decrypts the duplicated-chars.txt
-
     Path filePath = Paths.get("src/encoded-lines.txt");
     decrypt(filePath);
   }
-
   private static void decrypt(Path mypath) {
     try {
       List<String> crypticList = Files.readAllLines(mypath);
@@ -23,7 +21,6 @@ public class EncodedLines {
           String next = String.valueOf((char)(charValue-1));
           currentWord=currentWord+next;
         }
-
         currentString=currentString+currentWord +" ";
         decryptedList.add(currentString);
       }
