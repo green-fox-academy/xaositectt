@@ -10,9 +10,7 @@ public class FindSubstringInList {
     //input: "ching", ["this", "is", "what", "I'm", "searching", "in"]
     //output: 4
 
-
     public static void main(String[] args) {
-
         ArrayList<String> myArrayList = new ArrayList<>();
         myArrayList.add("this");
         myArrayList.add("is");
@@ -21,29 +19,18 @@ public class FindSubstringInList {
         myArrayList.add("searching");
         myArrayList.add("in");
         myArrayList.add("searching");
-
-
         String myString = "ching";
-
-
         System.out.println(findpart(myArrayList, myString));
-
     }
 
     public static int findpart (ArrayList<String> inputList, String inputString){
-
         ArrayList<Integer> results= new ArrayList<>();
-
         for (int i=0; i < inputList.size(); i++){
-
             String currElement = inputList.get(i);
-
             if (currElement.contains(inputString)) {
-
                 results.add(i);
             }
         }
-
         return results.get(0);
     }
 }

@@ -15,7 +15,6 @@ public class Palindrome_Searcher {
     Scanner input = new Scanner(System.in);
     String myWords = input.nextLine();
     System.out.println(palinSearch(myWords));
-
   }
 
   public static ArrayList<String> palinSearch(String input) {

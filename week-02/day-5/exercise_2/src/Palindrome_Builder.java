@@ -10,7 +10,7 @@ public class Palindrome_Builder {
   //turn it back into string
   public static void main(String[] args) {
     Scanner input = new Scanner (System.in);
-    System.out.println("This is a palindrome creator. Insert a word and it returns a nonsensical.");
+    System.out.println("This is a palindrome creator. Insert a word and it returns a nonsensical symmetrical version.");
     String inputWord = input.nextLine();
     System.out.println(palindrome(inputWord));
   }
