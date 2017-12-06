@@ -1,39 +1,41 @@
 import javax.swing.*;
-
 import java.awt.*;
+import java.awt.event.*;
+import java.lang.reflect.Array;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class LinePlay {
+// draw the night sky:
+// - The background should be black
+// - The stars can be small squares
+// - The stars should have random positions on the canvas
+// - The stars should have random color (some shade of grey)
+
+public class StarryNight {
 
   static Graphics g;
 
   public static void mainDraw(Graphics graphics){
 
+    graphics.setColor(Color.black);
+    graphics.fillRect(0, 0, WIDTH, HEIGHT);
 
-    linePlay(30);
+    int numStars = (int) (Math.random() * 5000000);
+
+    for (int i=0; i<numStars; i++) {
+      int rectSize = (int) (Math.random()*20);
+      int colorNum = (int) (Math.random()*255);
+      Color myGrey = new Color(colorNum, colorNum , colorNum);
+      graphics.setColor(myGrey);
+      int randomX = (int) (Math.random()*WIDTH);
+      int randomY = (int) (Math.random()*HEIGHT);
+      graphics.fillRect(randomX, randomY, rectSize, rectSize);
+    }
+
+
 
   }
 
-  public static void linePlay(int lineNumber){
-
-    int startX=0;
-    int startY=0;
-
-    int spaceX=WIDTH/lineNumber;
-    int spaceY=HEIGHT/lineNumber;
-
-    for (int i=0; i < lineNumber; i++ ) {
-      g.setColor(Color.green);
-      g.drawLine(startX, startY+i*spaceY, startX+i*spaceX, HEIGHT);
-    }
-
-    for (int i=0; i < lineNumber; i++ ) {
-      g.setColor(Color.pink);
-      g.drawLine(startX+i*spaceX, startY, WIDTH, startY+i*spaceY);
-    }
-
-  }
 
   //    Don't touch the code below
   static int WINDOW_WIDTH = 600;
@@ -41,7 +43,6 @@ public class LinePlay {
 
   static int WIDTH = WINDOW_WIDTH;
   static int HEIGHT = WINDOW_HEIGHT -23;
-
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -57,8 +58,6 @@ public class LinePlay {
       super.paintComponent(graphics);
       g= graphics;
       mainDraw(graphics);
-
     }
   }
-
 }
