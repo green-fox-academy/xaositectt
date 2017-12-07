@@ -6,20 +6,19 @@
 public class BunniesAgain {
   public static void main(String[] args) {
 
-    System.out.println(earCount(5));
+    System.out.println(earCount(3));
 
   }
 
   public static int earCount(int n) {
     if (n==1){
-      return 1;
-
+      return 2;
     }
     else if (n%2==0){
-     return  2+earCount(n-1);
+     return  3+earCount(n-1);
     }
     else {
-      return  1+earCount(n-1);
+      return  2+earCount(n-1);
     }
 
   }

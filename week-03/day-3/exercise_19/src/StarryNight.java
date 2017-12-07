@@ -20,7 +20,7 @@ public class StarryNight {
     graphics.setColor(Color.black);
     graphics.fillRect(0, 0, WIDTH, HEIGHT);
 
-    int numStars = (int) (Math.random() * 5000000);
+    int numStars = (int) (Math.random() * 50000000);
 
     for (int i=0; i<numStars; i++) {
       int rectSize = (int) (Math.random()*20);
