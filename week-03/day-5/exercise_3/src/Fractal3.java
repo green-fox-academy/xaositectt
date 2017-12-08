@@ -11,10 +11,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 
 public class Fractal3 {
-
-
-
-
   static Graphics g;
 
   public static void mainDraw(Graphics graphics) {
@@ -32,8 +28,7 @@ public class Fractal3 {
   public static void fract1(int x, int y, int side){
 
     int height = (int)(0.866*side);
-    int newSide= side/3;
-    int newHeight = height/3;
+
 
     int xpoints[] = {x,x+side/2,x+(3*side)/2,x+2*side,x+(3*side)/2,x+side/2 };
     int ypoints[] = {y,y-height,y-height, y, y+height, y+height};
@@ -52,9 +47,8 @@ public class Fractal3 {
       g.fillPolygon(xpoints, ypoints, npoints);
     }
 
-
-
-
+    int newSide= side/3;
+    int newHeight = height/3;
     if (newSide>1) {
       int incremX = newSide*2;
       int incremY = newHeight*2;
@@ -71,10 +65,7 @@ public class Fractal3 {
       fract1(x+incremX/2+incremX,y-incremY,newSide);
       g.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
       fract1(x+incremX/2+incremX,y+incremY,newSide);
-
     }
-
-
   }
 
 
