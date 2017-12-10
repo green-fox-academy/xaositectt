@@ -1,40 +1,23 @@
 import sun.security.util.Length;
-
 import javax.swing.*;
-
 import java.awt.*;
-
 import static java.awt.Window.getWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-
-
-
 public class Fractal4 {
-
-
-
 
   static Graphics g;
 
   public static void mainDraw(Graphics graphics) {
     g.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
     g.fillRect(0, 0, WIDTH, HEIGHT);
-
     int side =600;
     int myX = (WIDTH-side)/2;
     int myY=(HEIGHT-side)/2;
     fract1(myX, myY, side);
-
-
-
-
-
   }
 
   public static void fract1(int x, int y, int side){
-
-
     int dev =(int)(Math.random()*100);
     //random fill-draw 1
     if (dev >=50) {
@@ -78,7 +61,7 @@ public class Fractal4 {
     }
 
     int newSide=side/3;
-    if (newSide>1) {
+    if (newSide>100) {
       int incremX = newSide;
       int incremY = newSide;
       fract1(x, y, newSide);

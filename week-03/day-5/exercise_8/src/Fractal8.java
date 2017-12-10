@@ -1,50 +1,41 @@
 import sun.security.util.Length;
-
 import javax.swing.*;
-
 import java.awt.*;
-
 import static java.awt.Window.getWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-
-
-
 public class Fractal8 {
-
-
-
 
   static Graphics g;
 
   public static void mainDraw(Graphics graphics) {
-    g.setColor(Color.yellow);
+    g.setColor(Color.black);
     g.fillRect(0, 0, WIDTH, HEIGHT);
 
-    fract1(WIDTH/2, 500, 600);
-
-
-
-
-
+    fract1(WIDTH/2, HEIGHT-100, 90, 220);
   }
+  public static void fract1(double x, double y, double angle, double length){
 
-  public static void fract1(int x, int y, int side){
+    double secondX = x+ Math.cos(Math.toRadians(angle))*length;
+    double secondY = y- Math.sin(Math.toRadians(angle))*length;
 
-    int xpoints[] = {};
-    int ypoints[] = {};
-    int npoints = 3;
+    g.setColor(Color.white);
+    g.drawLine((int)x,(int)y,(int)secondX, (int)secondY);
 
-    g.setColor(Color.black);
-    g.drawPolygon(xpoints, ypoints, npoints);
+    double newLength = length*0.78;
 
-
+    if (newLength >53) {
+      fract1(secondX, secondY, angle, newLength);
+      fract1(secondX, secondY, angle-20, newLength);
+      fract1(secondX, secondY, angle+20, newLength);
+      fract1(secondX, secondY, angle-40, newLength);
+      fract1(secondX, secondY, angle+40, newLength);
+    }
   }
-
 
   //    Don't touch the code below
-  static int WINDOW_WIDTH = 800;
-  static int WINDOW_HEIGHT = 823;
+  static int WINDOW_WIDTH = 1200;
+  static int WINDOW_HEIGHT = 1023;
 
   static int WIDTH = WINDOW_WIDTH;
   static int HEIGHT = WINDOW_HEIGHT -23;

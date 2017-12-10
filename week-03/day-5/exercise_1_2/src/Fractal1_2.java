@@ -1,90 +1,43 @@
-import javax.swing.*;
-import java.awt.*;
-
-final public class Fractal1_2 {
-
-  JFrame frame;
-  DrawPanel drawPanel;
-
-  private int oneX = 7;
-  private int oneY = 7;
-
-  boolean up = false;
-  boolean down = true;
-  boolean left = false;
-  boolean right = true;
-
+public class Fractal1_2 {
   public static void main(String[] args) {
-    new Fractal1_2().go();
+
+    //the 2nd and 3rd fract1 will only work if the snowflake aligns with the axes.
+
+    fract1(0, 400, WIDTH, 500);
+    fract1(0, 400, );
+    fract1();
   }
 
-  private void go() {
-    frame = new JFrame("Test");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  public static void fract1(double x1, double y1, double x2, double y2) {
+    double length = (Math.sqrt(Math.pow(Math.abs(x2 - x1), 2) + Math.pow(Math.abs(y2 - y1), 2)));
+    double height = (Math.sqrt(3) / 2 * length / 3);
 
-    drawPanel = new DrawPanel();
+    System.out.println(length);
+    System.out.println(height);
 
-    frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
+    double midLinex1 = x1 + (x2 - x1) / 3;
+    double midLinex2 = x1 + 2 * (x2 - x1) / 3;
 
-    frame.setVisible(true);
-    frame.setResizable(false);
-    frame.setSize(1000, 1000);
-    frame.setLocation(375, 55);
-    moveIt();
-  }
+    double midLiney1 = y1 + (y2 - y1) / 3;
+    double midLiney2 = y1 + 2 * (y2 - y1) / 3;
 
-  class DrawPanel extends JPanel {
-    public void paintComponent(Graphics g) {
+    double lineMiddlex = x1 + (x2 - x1) / 2;
+    double lineMiddley = y1 + (y2 - y1) / 2;
 
-      g.setColor(Color.BLACK);
-      g.fillRect(oneX, oneY, 6, 6);
-    }
-  }
+    double triHeight = (Math.sqrt(3) / 2 * length / 3);
 
-  public static void fract1( int x, int y, int side, Graphics g){
-    side = side;
-    int height = (int)(Math.sqrt(3)/2*side);
+    double lineAngle = Math.asin((x2 - x1) / length);
+    double myHeightAngle = Math.PI/2 - lineAngle;
+    double ky = Math.cos(myHeightAngle) * height;
+    double kx = Math.sin(myHeightAngle) * height;
 
-    int xpoints1[] = {x+(int)(Math.random()*10), x+side+(int)(Math.random()*10), x+side/2+(int)(Math.random()*10)};
-    int ypoints1[] = {y+(int)(Math.random()*10), y+(int)(Math.random()*10), y+height+(int)(Math.random()*10)};
-    int npoints1 = 3;
+    System.out.println(kx);
+    System.out.println(ky);
 
-    g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
-    g.drawPolygon(xpoints1, ypoints1, npoints1);
+    System.out.println(lineAngle);
+    System.out.println(myHeightAngle);
 
-    int sideNew = side/2;
-    int heightNew = (int)(Math.sqrt(3)/2*sideNew);
-    if (sideNew > 1) {
-      g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
-      fract1(x, y, sideNew, g);
-      g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
-      fract1(x+side/2, y, sideNew, g);
-      g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
-      fract1(x+sideNew/2, y+heightNew, sideNew, g);
-    }
-
-
-
-
-  private void moveIt() {
-    while(true){
-
-      if(up){
-        oneY--;
-      }
-      if(down){
-        oneY++;
-      }
-      if(left){
-        oneX--;
-      }
-      if(right){
-        oneX++;
-      }
-      try{
-        Thread.sleep(10);
-      } catch (Exception exc){}
-      frame.repaint();
-    }
+    double triangleTopx = Math.abs(lineMiddlex + kx);
+    double triangleTopy = Math.abs(lineMiddley - ky);
   }
 }

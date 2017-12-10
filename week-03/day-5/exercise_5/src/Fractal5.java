@@ -1,16 +1,13 @@
 import sun.security.util.Length;
-
 import javax.swing.*;
-
 import java.awt.*;
-
 import static java.awt.Window.getWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Fractal5 {
 
   static Graphics g;
-  static Graphics2D g2;
+  //static Graphics2D g2;
 
   public static void mainDraw(Graphics graphics) {
     g.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
@@ -23,18 +20,16 @@ public class Fractal5 {
   }
 
   public static void fract1(int x, int y, int side){
-
     //random fill-draw 2
+    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
 
-      java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+    g2.setStroke(new java.awt.BasicStroke(5+(int)(Math.random()*5)));
+    g2.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
+    g2.drawRect(x, y, side, side);
 
-      g2.setStroke(new java.awt.BasicStroke(5+(int)(Math.random()*5)));
-      g2.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
-      g2.drawRect(x, y, side, side);
-
-      g2.setStroke(new java.awt.BasicStroke(20+(int)(Math.random()*20)));
-      g2.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
-      g2.drawRect(x+side/4, y+side/4, side/2, side/2);
+    g2.setStroke(new java.awt.BasicStroke(20+(int)(Math.random()*20)));
+    g2.setColor(Color.getHSBColor((float) Math.random(), (float) Math.random(), (float) Math.random()));
+    g2.drawRect(x+side/4, y+side/4, side/2, side/2);
 
     int newSide=side/2;
     if (newSide>100) {

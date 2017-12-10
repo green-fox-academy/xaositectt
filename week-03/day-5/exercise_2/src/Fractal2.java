@@ -1,9 +1,6 @@
 import sun.security.util.Length;
-
 import javax.swing.*;
-
 import java.awt.*;
-
 import static java.awt.Window.getWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -14,7 +11,6 @@ public class Fractal2 {
   public static void mainDraw(Graphics graphics) {
     g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
     g.fillRect(0, 0, WIDTH, HEIGHT);
-
     fract1(WIDTH/2, HEIGHT/2, WIDTH);
   }
 
@@ -24,13 +20,12 @@ public class Fractal2 {
     int newDiameter=diameter/2- (int)(Math.random()*10);
     x= x-diameter/2;
     y=y-diameter/2;
-
     int dev =(int)(Math.random()*100);
-
     if (dev >=50) {
 
-    g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
-    g.fillOval(x,y, diameter,diameter); }
+      g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
+      g.fillOval(x,y, diameter,diameter);
+    }
 
     if (dev <50) {
 
@@ -48,10 +43,7 @@ public class Fractal2 {
       fract1(x+diameter/2-cosLength,y+diameter/2+sinLength,newDiameter );
       g.setColor(Color.getHSBColor((float)Math.random(), (float)Math.random(), (float)Math.random()));
       fract1(x+diameter/2+cosLength,y+diameter/2+sinLength,newDiameter );
-
-
     }
-
   }
 
   //    Don't touch the code below
