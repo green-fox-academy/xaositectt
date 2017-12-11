@@ -28,13 +28,11 @@ public class Dice {
     return dices[i];
   }
 
-
   public void reroll(int k) {
     dices[k] = (int) (Math.random() * 6) + 1;
   }
 
   public static void main(String[] args) {
-
 
     Dice myDice = new Dice();
     myDice.roll();
@@ -56,14 +54,8 @@ public class Dice {
         }
       }
 
-
     System.out.println(Arrays.toString(myDice.getCurrent()));
     System.out.println("My rollcount is "+ rollcount);
-
-
-
-
-
 
     //for (int =0; i< myDice.get; )
 /*
