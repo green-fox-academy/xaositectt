@@ -72,7 +72,7 @@ public class Fractal7 {
 
     java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
 
-    g2.setStroke(new java.awt.BasicStroke(3));
+    g2.setStroke(new java.awt.BasicStroke(2));
     g2.setColor(Color.white);
     g2.drawLine((int)midLinex1, (int)midLiney1, (int)midLinex2, (int)midLiney2);
 
