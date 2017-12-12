@@ -36,8 +36,6 @@ public class Fractal7 {
     double lineMiddlex =x1+(x2-x1)/2;
     double lineMiddley = y1+(y2-y1)/2;
 
-    double triHeight = (Math.sqrt(3)/2*length/3);
-
     double lineAngle = Math.asin((x2 - x1) / length);
     double myHeightAngle = Math.PI/2 - lineAngle;
     double ky = Math.cos(myHeightAngle) * height;
@@ -75,7 +73,6 @@ public class Fractal7 {
     g2.setStroke(new java.awt.BasicStroke(2));
     g2.setColor(Color.white);
     g2.drawLine((int)midLinex1, (int)midLiney1, (int)midLinex2, (int)midLiney2);
-
 
     double lengthNew = length/3;
 

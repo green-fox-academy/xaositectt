@@ -4,14 +4,12 @@ when watering it the tree can only absorb the 40% of the water
 eg. watering with 10 the tree's amount of water should only increase with 4 */
 
 public class Tree extends Plant {
-  private double percentage= 0.4;
 
   public Tree () {
   }
 
-  public Tree (String color) {
-    super(color);
+  public Tree (String name, String color) {
+    super(name, color);
   }
-
 
 }

@@ -47,10 +47,27 @@ public class GardenApp {
   }
 
   public static void main(String[] args) {
-    Flower daisy = new Flower("yellow");
-    Flower lily = new Flower("blue");
-    Tree pine = new Tree("brown");
-    Tree pine = new Tree("brown");
+    Plant daisy = new Flower("daisy", "yellow");
+    Plant lily = new Flower("lily", "blue");
+    Plant tulip = new Flower("tulip", "red");
+    Plant pine = new Tree("pine","purple");
+    Plant oak = new Tree("oak","orange");
+    Plant cedar = new Tree("cedar", "beige");
+
+    GardenApp Paradise = new GardenApp("Paradise");
+    Paradise.addPlant(daisy);
+    Paradise.addPlant(lily);
+    Paradise.addPlant(pine);
+    Paradise.addPlant(oak);
+    Paradise.addPlant(tulip);
+    Paradise.addPlant(cedar);
+
+    Paradise.getinfo();
+
+    waterPlants(40, Paradise.getPlantList());
+
+    Paradise.getinfo();
+
 
   }
 
@@ -58,5 +75,57 @@ public class GardenApp {
     plantList.add(plant);
   }
 
+  public Plant getPlant(int i) {
+    return plantList.get(i);
+  }
 
+  public List<Plant> getPlantList() {
+    return plantList;
+  }
+
+  public void getinfo () {
+    for (Plant plant : plantList) {
+      System.out.println("Species is " + plant.getName() + " and the current water level is: " + plant.getCurrentWater());
+    }
+  }
+
+
+  public static int waterCount (int water, List<Plant> plantList) {
+    int count =0;
+    for (Plant plant:plantList) {
+      if (plant.getClass()==Flower.class) {
+        if (plant.getCurrentWater() <=5) {
+          count++;
+        }
+      }
+      if (plant.getClass() ==Tree.class) {
+        if (plant.getCurrentWater() <=10){
+          count++;
+        }
+      }
+    }
+    //System.out.println(count);
+    return (int)water/count;
+  }
+
+  public static void waterPlants(int water, List<Plant> plantList) {
+    int portion=water/waterCount(water, plantList);
+    System.out.println("number of waterings is: "+ waterCount(water, plantList));
+    System.out.println("water portion per plant is: "+ portion);
+    for (Plant plant:plantList) {
+      if (plant.getClass()==Flower.class) {
+        if (plant.getCurrentWater() <=5) {
+          System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.75");
+          plant.water((int)(0.75*portion));
+
+        }
+      }
+      if (plant.getClass() ==Tree.class) {
+        if (plant.getCurrentWater() <=10){
+          System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.5");
+          plant.water((int)(0.5*portion));
+        }
+      }
+    }
+  }
 }
