@@ -10,9 +10,14 @@ initialize gasAmount -> 0
 initialize capacity -> 100*/
 
 public class Petrol {
+  public static void main(String[] args) {
+    Car bugatti = new Car();
+    Station omv = new Station(1000);
+    omv.carFill(bugatti);
+    omv.carFill(bugatti);
+    omv.carFill(bugatti);
 
-  Car bugatti = new Car("bugatti");
-  Petrol omv = new Petrol(10);
-
-
+    System.out.println("the station now has " + omv.petrolGet()+" gas");
+    System.out.println("The bugatti now has " + bugatti.carGet()+ " gas");
+  }
 }
