@@ -64,11 +64,11 @@ public class GardenApp {
 
     Paradise.getinfo();
 
-    waterPlants(40, Paradise.getPlantList());
+    System.out.println("The number of required waterings: " +waterCount(40, Paradise.getPlantList()));
+
+    waterPlants(40,Paradise.getPlantList());
 
     Paradise.getinfo();
-
-
   }
 
   public void addPlant (Plant plant) {
@@ -89,42 +89,32 @@ public class GardenApp {
     }
   }
 
-
   public static int waterCount (int water, List<Plant> plantList) {
-    int count =0;
+    int count1 =0;
+    int count2=0;
     for (Plant plant:plantList) {
-      if (plant.getClass()==Flower.class) {
-        if (plant.getCurrentWater() <=5) {
-          count++;
+        if (plant.getCurrentWater() <=5 && plant instanceof Flower) {
+          count1++;
+        }
+        if (plant.getCurrentWater() <=10 && plant instanceof Tree){
+          count2++;
         }
       }
-      if (plant.getClass() ==Tree.class) {
-        if (plant.getCurrentWater() <=10){
-          count++;
-        }
-      }
+    return count1+count2;
     }
-    //System.out.println(count);
-    return (int)water/count;
-  }
 
   public static void waterPlants(int water, List<Plant> plantList) {
     int portion=water/waterCount(water, plantList);
     System.out.println("number of waterings is: "+ waterCount(water, plantList));
     System.out.println("water portion per plant is: "+ portion);
     for (Plant plant:plantList) {
-      if (plant.getClass()==Flower.class) {
-        if (plant.getCurrentWater() <=5) {
+      if (plant instanceof Flower && plant.getCurrentWater() <=5) {
           System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.75");
           plant.water((int)(0.75*portion));
-
-        }
       }
-      if (plant.getClass() ==Tree.class) {
-        if (plant.getCurrentWater() <=10){
+      if (plant instanceof Tree && plant.getCurrentWater() <=10) {
           System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.5");
           plant.water((int)(0.5*portion));
-        }
       }
     }
   }
