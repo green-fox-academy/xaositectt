@@ -109,11 +109,11 @@ public class GardenApp {
     System.out.println("water portion per plant is: "+ portion);
     for (Plant plant:plantList) {
       if (plant instanceof Flower && plant.getCurrentWater() <=5) {
-          System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.75");
+          //System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.75");
           plant.water((int)(0.75*portion));
       }
       if (plant instanceof Tree && plant.getCurrentWater() <=10) {
-          System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.5");
+          //System.out.println(plant.getName()+ " needs watering and the amount is: " + portion + "*0.5");
           plant.water((int)(0.5*portion));
       }
     }

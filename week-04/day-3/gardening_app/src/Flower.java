@@ -13,4 +13,13 @@ public class Flower extends Plant {
     super(name, color);
   }
 
+  public void water(int water) {
+    super.water((int)(water*0.75));
+  }
+
+  public boolean isThirsty(int water) {
+    return super.isThirsty(water);
+  }
+
+
 }

@@ -7,7 +7,6 @@ introduce(): "Hi, I'm name, a age year old gender who represents company and hir
 hire(): increase hiredStudents by 1
 getGoal(): prints out "Hire brilliant junior software developers."
 The Sponsor class has the following constructors:
-
 Sponsor(name, age, gender, company): beside the given parameters, it sets hiredStudents to 0
 Sponsor(): sets name to Jane Doe, age to 30, gender to female, company to Google and hiredStudents to 0*/
 

@@ -5,7 +5,6 @@ methods:
 getGoal(): prints out "Educate brilliant junior software developers."
 introduce(): "Hi, I'm name, a age year old gender level mentor."
 The Mentor class has the following constructors:
-
 Mentor(name, age, gender, level)
 Mentor(): sets name to Jane Doe, age to 30, gender to female, level to intermediate */
 

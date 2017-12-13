@@ -11,4 +11,12 @@ public class Tree extends Plant {
   public Tree (String name, String color) {
     super(name, color);
   }
+
+  public void water(int water) {
+    super.water((int)(water*0.4));
+  }
+
+  public boolean isThirsty(int water) {
+    return super.isThirsty(2*water);
+  }
 }

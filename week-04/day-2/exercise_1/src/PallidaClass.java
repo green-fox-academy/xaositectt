@@ -8,7 +8,6 @@ addStudent(Student): adds the given Student to students list
 addMentor(Mentor): adds the given Mentor to mentors list
 info(): prints out "Pallida className class has students.size students and mentors.size mentors."
 The PallidaClass class has the following constructors:
-
 PallidaClass(className): beside the given parameter, it sets students and mentors as empty lists*/
 
 import java.util.ArrayList;
