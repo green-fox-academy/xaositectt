@@ -1,43 +1,5 @@
 /*Aircraft Carrier
 
-Aircrafts
-
-Create a class that represents an aircraft
-
-There are 2 types of aircrafts: F16 and F35
-
-Both aircraft should track how many ammo it has
-
-F16
-
-Max ammo: 8
-Base damage: 30
-F35
-
-Max ammo: 12
-Base damage: 50
-All the aircrafts should be created with empty ammo store
-
-Methods:
-
-fight
-
-It should use all the ammos (set it to 0) and it should return the damage it deals
-The damage is the multiplication of the base damage and the ammos
-refill
-
-It should take a number as parameter and substract as much ammo as possibe
-It can't have more ammo than the number or the max ammo
-It should return the remaining ammo
-Eg. Filling an empty F35 with 300 would completely fill the storage of the aircraft and would return the remaining 288
-getType
-
-It should return it's type as a string
-getStatus
-
-It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
-Carrier
-
 Create a class that represents an aircraft-carrier
 
 The carrier should be able to store aircrafts
@@ -71,6 +33,15 @@ Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
 If the health points are 0 than it should give back: It's dead Jim :(*/
 
 public class AircraftCarrier {
+  public static void main(String[] args) {
+    F16 F16 = new F16(8, 30);
+    F16 F35 = new F16(12, 50);
 
+    System.out.println(F16.getAmmo());
+  }
+
+  public int damage(){
+    int damage= this.
+  }
 
 }
