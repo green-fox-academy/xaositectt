@@ -34,14 +34,45 @@ If the health points are 0 than it should give back: It's dead Jim :(*/
 
 public class AircraftCarrier {
   public static void main(String[] args) {
-    F16 F16 = new F16(8, 30);
-    F16 F35 = new F16(12, 50);
 
-    System.out.println(F16.getAmmo());
+    Carrier myCarrier1 = new Carrier("Moby Dick", 100, 600);
+
+    myCarrier1.printInfo();
+
+    myCarrier1.addAircraft("F35");
+    myCarrier1.addAircraft("F35");
+    myCarrier1.addAircraft("F35");
+    myCarrier1.addAircraft("F16");
+    myCarrier1.addAircraft("F16");
+    myCarrier1.addAircraft("F16");
+
+    myCarrier1.printInfo();
+
+    myCarrier1.fill();
+
+    myCarrier1.printInfo();
+
+    Carrier myCarrier2= new Carrier("Titanic", 100, 400);
+
+
+    myCarrier2.addAircraft("F35");
+    myCarrier2.addAircraft("F35");
+    myCarrier2.addAircraft("F35");
+    myCarrier2.addAircraft("F16");
+    myCarrier2.addAircraft("F16");
+    myCarrier2.addAircraft("F16");
+
+    myCarrier1.fight(myCarrier2);
+    myCarrier1.fight(myCarrier2);
+
+    myCarrier1.printInfo();
+    myCarrier2.printInfo();
+
+    myCarrier1.fill();
+
+    myCarrier1.printInfo();
+
+    //myCarrier1.
+
   }
-
-  public int damage(){
-    int damage= this.
-  }
-
 }

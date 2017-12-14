@@ -1,32 +1,39 @@
 public class Sharpie {
-  String color;
-  float width;
-  float inkAmount;
+  String color;;
+  int inkAmount;
 
   Sharpie () {
-
   }
 
-  Sharpie (String color, float width) {
+  Sharpie (String color) {
     this.color = color;
-    this.width = width;
     inkAmount=100;
   }
 
   public void use(){
+    System.out.println("You write something.");
     inkAmount--;
   }
 
-  public void whatisit(){
+  public void info(){
     System.out.println("the color is: "+color);
-    System.out.println("the width is: " + width);
     System.out.println("the ink amount is: "+inkAmount);
   }
 
-  public static void main(String[] args) {
-    Sharpie mySharpie = new Sharpie("red", 100f);
-    mySharpie.whatisit();
-    mySharpie.use();
-    mySharpie.whatisit();
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+
+  public float getInkAmount() {
+    return inkAmount;
+  }
+
+  public void setInkAmount(int inkAmount) {
+    this.inkAmount = inkAmount;
   }
 }

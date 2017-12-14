@@ -2,16 +2,30 @@ import java.util.*;
 
 public class Anagram {
 
-  //Create a function named is anagram following your current language's style guide. It should take
-  // two strings and return a boolean value depending on whether its an anagram or not.
-  // public static void main(String[] args) {
-  public static void main(String[] args) {
-    Scanner input = new Scanner (System.in);
-    System.out.println("This is an anagram checker. Please type in two sets of words:");
-    String word1input = input.nextLine();
-    String word2input = input.nextLine();
-    System.out.println(word1input+" "+word2input);
-    System.out.println("So it is "+ anaCheck(word1input, word2input)+ " that they are anagrams.");
+  private String string1;
+  private String string2;
+
+  public Anagram() {
+  }
+
+  public String getString1() {
+    return string1;
+  }
+
+  public String getString2() {
+    return string2;
+  }
+
+  public void setString2(String string2) {
+    this.string2 = string2;
+  }
+
+  public void setString1(String string1) {
+    this.string1 = string1;
+  }
+
+  public void main(String[] args) {
+   anaCheck(this.getString1(), this.getString2());
   }
 
   public static boolean anaCheck(String input1, String input2) {

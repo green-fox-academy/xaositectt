@@ -4,7 +4,6 @@ public class BlogPost {
   String text;
   String publicationDate;
 
-
   public static void main(String[] args) {
     BlogPost myBlogPost1 = new BlogPost();
     myBlogPost1.authorname = "John Doe";

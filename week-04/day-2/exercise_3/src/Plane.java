@@ -44,11 +44,13 @@ public class Plane {
   // return the remaining 28
 
   public int refill(int refill) {
-    int ammoToFill = this.maxAmmo-this.ammo;
-    if (refill >= ammoToFill) {
+    int returnAmmo = refill-this.maxAmmo;
+    if (refill >= this.maxAmmo) {
       this.ammo = this.maxAmmo;
     } else { this.ammo = this.ammo+refill;}
-    return refill-ammoToFill;
+    if (returnAmmo >=0) {
+      return returnAmmo;
+    } else {return 0;}
   }
 
   //getType
@@ -70,6 +72,22 @@ public class Plane {
 
   public int getAmmo() {
     return ammo;
+  }
+
+  public void setType(String type) {
+    Type = type;
+  }
+
+  public void setMaxAmmo(int maxAmmo) {
+    this.maxAmmo = maxAmmo;
+  }
+
+  public void setBaseDamage(int baseDamage) {
+    this.baseDamage = baseDamage;
+  }
+
+  public void setAmmo(int ammo) {
+    this.ammo = ammo;
   }
 
   public String getStatus(){
