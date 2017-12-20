@@ -2,11 +2,10 @@ public class Teacher {
   String myAnswer;
 
   public Teacher() {
-
   }
 
   public String answer() {
-    myAnswer="This is the answer";
+    myAnswer = "This is the answer";
     return myAnswer;
   }
 

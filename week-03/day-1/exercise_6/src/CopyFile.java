@@ -1,8 +1,8 @@
-import java.nio.file.*;
-import java.util.*;
-import java.io.*;
-
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 // Write a function that copies a file to an other
 // It should take the filenames as parameters

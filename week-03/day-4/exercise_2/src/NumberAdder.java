@@ -3,15 +3,13 @@
 public class NumberAdder {
   public static void main(String[] args) {
     System.out.println(adder(3));
-
   }
 
-  public static int adder(int n){
-    if (n==0){
+  public static int adder(int n) {
+    if (n == 0) {
       return 0;
-    }
-    else {
-      return n+adder(n-1);
+    } else {
+      return n + adder(n - 1);
     }
   }
 }

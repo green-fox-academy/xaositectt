@@ -2,64 +2,35 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class DrawDiagonal {
-    public static void main(String[] args) {
-        // Write a program that reads a number from the standard input, then draws a
-        // square like this:
-        //
-        //
-        // %%%%%
-        // %%  %
-        // % % %
-        // %  %%
-        // %%%%%
-        //
-        // The square should have as many lines as the number was
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.println("This exerise will print out a square of %-s");
+    System.out.println("Enter a number:");
 
-//defining the number of rows
+    int rowNumber = input.nextInt();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("This exerise will print out a square of %-s");
-        System.out.println("Enter a number:");
+    //creating the rows
 
-        int rowNumber = input.nextInt();
+    String row = String.join("", Collections.nCopies(rowNumber, "%"));
 
-        //creating the rows
+    //first line
 
+    System.out.println(row);
 
-        String row = String.join("", Collections.nCopies(rowNumber, "%"));
+    //middle lines with a loop
 
-        //first line
+    int n = 0;
+    int middleRows = rowNumber - 2;
 
-        System.out.println(row);
+    while (n < middleRows) {
+      String space1 = String.join("", Collections.nCopies(n, " "));
 
-        //middle lines with a loop
+      String space2 = String.join("", Collections.nCopies((rowNumber - n - 3), " "));
 
-        int n = 0;
-        int middleRows = rowNumber-2;
-
-        while (n < middleRows) {
-
-            String space1=String.join("", Collections.nCopies(n," "));
-
-
-
-            String space2=String.join("", Collections.nCopies((rowNumber-n-3)," "));
-
-            System.out.println("%" + space1 +"%" + space2 + "%");
-            n+=1;
-
-        }
-
-        //last line
-
-        System.out.println(row);
-
-
-
-
+      System.out.println("%" + space1 + "%" + space2 + "%");
+      n += 1;
     }
-
-
-
-
+    //last line
+    System.out.println(row);
+  }
 }

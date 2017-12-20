@@ -1,7 +1,5 @@
 import javax.swing.*;
-
 import java.awt.*;
-import java.lang.reflect.Array;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -15,12 +13,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class ConnectTheDots {
 
   static Graphics g;
+  //    Don't touch the code below
+  static int WINDOW_WIDTH = 600;
+  static int WINDOW_HEIGHT = 623;
+  static int WIDTH = WINDOW_WIDTH;
+  static int HEIGHT = WINDOW_HEIGHT - 23;
 
-  public static void mainDraw(Graphics graphics){
+  public static void mainDraw(Graphics graphics) {
 
     int[][] points1 = new int[][]{
             {10, 10},
-            {290,  10},
+            {290, 10},
             {290, 290},
             {10, 290}
     };
@@ -40,19 +43,12 @@ public class ConnectTheDots {
     connectDots(points2);
   }
 
-  public static void connectDots(int[][] points){
-    for (int i=0; i < points.length-1; i++) {
-      g.drawLine(points[i][0], points[i][1], points[i+1][0], points[i+1][1]);
+  public static void connectDots(int[][] points) {
+    for (int i = 0; i < points.length - 1; i++) {
+      g.drawLine(points[i][0], points[i][1], points[i + 1][0], points[i + 1][1]);
     }
-    g.drawLine(points[points.length-1][0], points[points.length-1][1], points[0][0], points[0][1]);
+    g.drawLine(points[points.length - 1][0], points[points.length - 1][1], points[0][0], points[0][1]);
   }
-
-  //    Don't touch the code below
-  static int WINDOW_WIDTH = 600;
-  static int WINDOW_HEIGHT = 623;
-
-  static int WIDTH = WINDOW_WIDTH;
-  static int HEIGHT = WINDOW_HEIGHT -23;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -62,11 +58,12 @@ public class ConnectTheDots {
     jFrame.setLocationRelativeTo(null);
     jFrame.setVisible(true);
   }
-  static class ImagePanel extends JPanel{
+
+  static class ImagePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
-      g= graphics;
+      g = graphics;
       mainDraw(graphics);
     }
   }

@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class AverageOfInput {
     public static void main(String[] args) {
-
         // Write a program that asks for 5 integers in a row,
         // then it should print the sum and the average of these numbers like:
         //
@@ -26,8 +25,5 @@ public class AverageOfInput {
 
         System.out.println("The sum of the numbers is " + sum + ".");
         System.out.println("The average of the numbers is " + average + ".");
-
     }
-
-
 }

@@ -5,15 +5,13 @@
 public class SumDigit {
   public static void main(String[] args) {
     System.out.println(sumDigit(111));
-
   }
 
-  public static int sumDigit(int n){
-    if (n==0) {
+  public static int sumDigit(int n) {
+    if (n == 0) {
       return 0;
-    }
-    else {
-      return n%10+sumDigit(n/10);
+    } else {
+      return n % 10 + sumDigit(n / 10);
     }
   }
 }

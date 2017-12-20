@@ -5,12 +5,12 @@ public class Bunnies {
   public static void main(String[] args) {
     System.out.println(bunnyEars(15));
   }
+
   public static int bunnyEars(int n) {
-    if (n==1){
+    if (n == 1) {
       return 2;
-    }
-    else {
-      return 2+bunnyEars(n-1);
+    } else {
+      return 2 + bunnyEars(n - 1);
     }
   }
 }

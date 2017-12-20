@@ -4,14 +4,11 @@ public class ConditionalVariableMutation {
         int out = 0;
 
         if (a%2 == 0) {
-            out+=1;
+            out += 1;
         }
         // if a is even increment out by one
 
         System.out.println(out);
-
-
-
 
         int b = 13;
         String out2 = "";
@@ -31,10 +28,7 @@ public class ConditionalVariableMutation {
             out2="More!";
         }
 
-
         System.out.println(out2);
-
-
 
         int c = 123;
         int credits = 100;
@@ -53,14 +47,9 @@ public class ConditionalVariableMutation {
             c-=1;
         }
         else if (isBonus == true) {
-
         }
 
-
         System.out.println(c);
-
-
-
 
         int d = 8;
         int time = 120;

@@ -1,23 +1,24 @@
 public class Sharpie {
-  String color;;
+  String color;
+  ;
   int inkAmount;
 
-  Sharpie () {
+  Sharpie() {
   }
 
-  Sharpie (String color) {
+  Sharpie(String color) {
     this.color = color;
-    inkAmount=100;
+    inkAmount = 100;
   }
 
-  public void use(){
+  public void use() {
     System.out.println("You write something.");
     inkAmount--;
   }
 
-  public void info(){
-    System.out.println("the color is: "+color);
-    System.out.println("the ink amount is: "+inkAmount);
+  public void info() {
+    System.out.println("the color is: " + color);
+    System.out.println("the ink amount is: " + inkAmount);
   }
 
   public String getColor() {

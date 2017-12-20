@@ -6,9 +6,9 @@
 // work hours weekly is 52
 public class CodingHours {
   public static void main(String[] args) {
-    int codeHours=17*5*6;
-    int workHours=17*52;
-    double ratio=(double) codeHours / workHours;
+    int codeHours = 17*5*6;
+    int workHours = 17*52;
+    double ratio = (double) codeHours / workHours;
     System.out.println("Coding hours are: " + codeHours);
     System.out.println("Coding hours percentage is: " + ratio*100 + " %");
   }

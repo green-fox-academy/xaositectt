@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class cuboid {
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
 
         System.out.println("This exerise will print out the surface area and volume of a cubicle;");
@@ -23,11 +22,5 @@ public class cuboid {
 
         System.out.println("The surface of the cubicle is " + surface + ".");
         System.out.println("The volume of the cubicle is " + volume + ".");
-
-
-
-
-
     }
-
 }

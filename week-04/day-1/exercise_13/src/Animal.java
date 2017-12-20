@@ -3,30 +3,30 @@ public class Animal {
   private int thirst;
   private int hunger;
 
-  public Animal(){
+  public Animal() {
     this.species = "unspecified";
     this.thirst = 40;
     this.hunger = 40;
   }
 
-  public Animal (String name){
+  public Animal(String name) {
     this.species = name;
   }
 
-  public void whatisit(){
-    System.out.println("the thirst is: "+thirst);
-    System.out.println("the hunger is: "+hunger);
+  public void whatisit() {
+    System.out.println("the thirst is: " + thirst);
+    System.out.println("the hunger is: " + hunger);
   }
 
-  public void eat(){
+  public void eat() {
     hunger--;
   }
 
-  public void drink(){
+  public void drink() {
     thirst--;
   }
 
-  public void play(){
+  public void play() {
     thirst++;
     hunger++;
   }

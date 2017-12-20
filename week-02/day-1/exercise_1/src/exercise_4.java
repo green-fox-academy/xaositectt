@@ -3,8 +3,5 @@ public class exercise_4 {
         System.out.println("Name: Tamas Varga");
         System.out.println("Age: 34");
         System.out.println("Height: 1.85");
-
-
     }
-
 }

@@ -1,5 +1,5 @@
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Palindrome_Searcher {
@@ -31,6 +31,7 @@ public class Palindrome_Searcher {
         }
       }
     }
+
     //I sort out all the unique strings
     ArrayList<String> myListUnique = new ArrayList<>();
     for (int j = 0; j < myList.size(); j++) {
@@ -41,8 +42,8 @@ public class Palindrome_Searcher {
     //I check if the strings are palindromes
     ArrayList<String> myPalindromeList = new ArrayList<>();
     for (int k = 0; k < myListUnique.size(); k++) {
-      boolean isIt =true;
-      for (int l=0; l <myListUnique.get(k).length()/2; l++) {
+      boolean isIt = true;
+      for (int l = 0; l < myListUnique.get(k).length() / 2; l++) {
         if (myListUnique.get(k).charAt(l) != myListUnique.get(k).charAt(myListUnique.get(k).length() - 1 - l)) {
           isIt = false;
         }

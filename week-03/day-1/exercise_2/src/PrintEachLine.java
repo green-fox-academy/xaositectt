@@ -1,8 +1,7 @@
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.Files;
-import java.util.*;
-import java.io.IOException;
+import java.util.List;
 
 // Write a program that opens a file called "my-file.txt", then prints
 // each of lines form the file.
@@ -14,14 +13,15 @@ public class PrintEachLine {
     txReader();
 
   }
+
   public static void txReader() {
     try {
       Path filePath = Paths.get("src/my_file.txt");
       List<String> lines = Files.readAllLines(filePath);
-      for (int i=0; i < lines.size(); i++) {
+      for (int i = 0; i < lines.size(); i++) {
         System.out.println(lines.get(i));
       }
-    } catch(Exception e){
+    } catch (Exception e) {
       System.out.println("Unable to read file");
     }
   }

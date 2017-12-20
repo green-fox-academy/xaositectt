@@ -4,10 +4,9 @@ public class Swap {
     int a = 123;
     int b = 526;
     int c = b;
-    b=a;
-    a=c;
+    b = a;
+    a = c;
     System.out.println(a);
     System.out.println(b);
   }
-
 }

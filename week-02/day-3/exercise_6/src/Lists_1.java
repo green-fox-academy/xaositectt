@@ -1,17 +1,17 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Lists_1 {
 
-    public static void main(String... args){
-        ArrayList<String> planetList = new ArrayList<String>(Arrays.asList("Mercury","Venus","Earth","Mars","Jupiter","Uranus","Neptune"));
+  public static void main(String... args) {
 
-        // Saturn is missing from the planetList
-        // Insert it into the correct position
+    ArrayList<String> planetList = new ArrayList<String>(Arrays.asList("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune"));
 
-        planetList.add(5,"Saturn");
+    // Saturn is missing from the planetList
+    // Insert it into the correct position
 
-        System.out.println(planetList);
-    }
+    planetList.add(5, "Saturn");
 
-
+    System.out.println(planetList);
+  }
 }

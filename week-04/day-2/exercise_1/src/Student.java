@@ -19,14 +19,14 @@ public class Student extends Person {
   private String previousOrganization;
   private int skippedDays;
 
-  Student(){
-    this.previousOrganization="The School of Life";
-    this.skippedDays=0;
+  Student() {
+    this.previousOrganization = "The School of Life";
+    this.skippedDays = 0;
   }
 
-  Student(String name, int age, String gender, String previousOrganization){
+  Student(String name, int age, String gender, String previousOrganization) {
     super(name, age, gender);
-    this.previousOrganization=previousOrganization;
+    this.previousOrganization = previousOrganization;
   }
 
   public void getGoal() {
@@ -34,11 +34,11 @@ public class Student extends Person {
   }
 
   public void introduce(Person person) {
-    System.out.println("Hi, i'm " + this.getName() + " from "+this.getPreviousOrganization() + " who skipped "+this.getSkippedDays()+" from the course already");
+    System.out.println("Hi, i'm " + this.getName() + " from " + this.getPreviousOrganization() + " who skipped " + this.getSkippedDays() + " from the course already");
   }
 
   public void skipDays(int numberOfDays) {
-    skippedDays=skippedDays+numberOfDays;
+    skippedDays = skippedDays + numberOfDays;
   }
 
   public String getPreviousOrganization() {

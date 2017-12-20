@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Palindrome_Builder {
   //Create a function named create palindrome following your current

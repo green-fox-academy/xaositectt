@@ -4,6 +4,4 @@ public class exercise_3 {
         System.out.println("Hello Barni");
         System.out.println("Hello Merlin");
     }
-
-
 }

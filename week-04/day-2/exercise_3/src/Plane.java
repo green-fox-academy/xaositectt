@@ -23,7 +23,7 @@ public class Plane {
   private int ammo;
 
   public Plane() {
-    this.ammo=0;
+    this.ammo = 0;
   }
 
   public Plane(int maxAmmo, int baseDamage) {
@@ -32,8 +32,8 @@ public class Plane {
   }
 
   public int damage() {
-    ammo=0;
-    return this.ammo*this.baseDamage;
+    ammo = 0;
+    return this.ammo * this.baseDamage;
   }
 
   //refill
@@ -44,13 +44,17 @@ public class Plane {
   // return the remaining 28
 
   public int refill(int refill) {
-    int returnAmmo = refill-this.maxAmmo;
+    int returnAmmo = refill - this.maxAmmo;
     if (refill >= this.maxAmmo) {
       this.ammo = this.maxAmmo;
-    } else { this.ammo = this.ammo+refill;}
-    if (returnAmmo >=0) {
+    } else {
+      this.ammo = this.ammo + refill;
+    }
+    if (returnAmmo >= 0) {
       return returnAmmo;
-    } else {return 0;}
+    } else {
+      return 0;
+    }
   }
 
   //getType
@@ -58,41 +62,41 @@ public class Plane {
   //getStatus
   //It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
 
-  public String getType(){
-    return (String)this.getClass().toString().replace("class ","");
-  }
-
-  public int getMaxAmmo() {
-    return maxAmmo;
-  }
-
-  public int getBaseDamage() {
-    return baseDamage;
-  }
-
-  public int getAmmo() {
-    return ammo;
+  public String getType() {
+    return (String) this.getClass().toString().replace("class ", "");
   }
 
   public void setType(String type) {
     Type = type;
   }
 
+  public int getMaxAmmo() {
+    return maxAmmo;
+  }
+
   public void setMaxAmmo(int maxAmmo) {
     this.maxAmmo = maxAmmo;
+  }
+
+  public int getBaseDamage() {
+    return baseDamage;
   }
 
   public void setBaseDamage(int baseDamage) {
     this.baseDamage = baseDamage;
   }
 
+  public int getAmmo() {
+    return ammo;
+  }
+
   public void setAmmo(int ammo) {
     this.ammo = ammo;
   }
 
-  public String getStatus(){
-    String status= "Type: " + this.getType() + ", Ammo: " + this.getAmmo() + ", Base Damage:" +
-            this.getBaseDamage() + ", All Damage:" + this.getBaseDamage()*this.getAmmo();
+  public String getStatus() {
+    String status = "Type: " + this.getType() + ", Ammo: " + this.getAmmo() + ", Base Damage:" +
+            this.getBaseDamage() + ", All Damage:" + this.getBaseDamage() * this.getAmmo();
     return status;
   }
 }

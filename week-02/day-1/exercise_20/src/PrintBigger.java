@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class PrintBigger {
     public static void main(String[] args) {
-
         // Write a program that asks for two numbers and prints the bigger one
 
         Scanner input = new Scanner(System.in);
@@ -26,7 +25,5 @@ public class PrintBigger {
         } else {
             System.out.println("The two numbers are equal.");
         }
-
     }
-
 }

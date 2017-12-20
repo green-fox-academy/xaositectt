@@ -1,19 +1,19 @@
-/*Create a PostIt class that has
-        a backgroundColor
-        a text on it
-        a textColor
-        Create a few example post-it objects:
-        an orange with blue text: "Idea 1"
-        a pink with black text: "Awesome"
-        a yellow with green text: "Superb!"*/
-
-import java.util.Scanner;
+//Create a PostIt class that has
+//a backgroundColor
+//a text on it
+//a textColor
+//Create a few example post-it objects:
+//an orange with blue text: "Idea 1"
+//a pink with black text: "Awesome"
+//a yellow with green text: "Superb!"
 
 public class postit {
   String backgroundColor;
   String text;
   String textColor;
-  public postit(){}
+
+  public postit() {
+  }
 
   public static void main(String[] args) {
     postit myPostit1 = new postit();

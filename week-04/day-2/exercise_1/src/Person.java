@@ -15,18 +15,18 @@ public class Person {
   private String gender;
 
   Person() {
-    this ("Jane Doe", 30, "female");
+    this("Jane Doe", 30, "female");
   }
 
   Person(String name, int age, String gender) {
-    this.name=name;
-    this.age=age;
-    this.gender=gender;
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
   }
 
 
   public void introduce() {
-    System.out.println("Hi i'm "+this.name+ ", a "+this.age+" year old " +this.gender + " gender");
+    System.out.println("Hi i'm " + this.name + ", a " + this.age + " year old " + this.gender + " gender");
   }
 
   public void getGoal() {
@@ -44,5 +44,4 @@ public class Person {
   public String getGender() {
     return gender;
   }
-
 }

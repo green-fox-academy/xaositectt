@@ -1,6 +1,8 @@
-import java.nio.file.*;
-import java.util.*;
-import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 // Create a function that takes 3 parameters: a path, a word and a number,
 // than it should write to a file.
@@ -14,18 +16,19 @@ import java.io.*;
 public class WriteMultipleLines {
   public static void main(String[] args) {
     Path myPath = Paths.get("src/myfile.txt");
-    String myWord = "This will be my line" ;
+    String myWord = "This will be my line";
     int myNumber = 5;
     writeFile(myPath, myWord, myNumber);
   }
 
-  public static void writeFile(Path inputPath, String inputWord, int inputNumber ) {
+  public static void writeFile(Path inputPath, String inputWord, int inputNumber) {
     try {
       List<String> inputList = new ArrayList<>();
-      for (int i=0; i < inputNumber; i++) {
+      for (int i = 0; i < inputNumber; i++) {
         inputList.add(inputWord);
       }
       Files.write(inputPath, inputList);
-    } catch (Exception e) {}
+    } catch (Exception e) {
+    }
   }
 }

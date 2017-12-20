@@ -19,18 +19,16 @@ public class OneTwoALot {
 
         }
 
-        else if (myNumber ==1) {
+        else if (myNumber == 1) {
             System.out.println("It is one.");
         }
 
-        else if (myNumber ==2) {
+        else if (myNumber == 2) {
             System.out.println("It is two.");
         }
 
         else if (myNumber > 2) {
             System.out.println("It is a lot.");
         }
-
     }
-
 }

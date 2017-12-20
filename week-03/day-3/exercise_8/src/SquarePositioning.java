@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -13,19 +12,12 @@ public class SquarePositioning {
     // the x and y coordinates of the square's top left corner
     // and draws a 50x50 square from that point.
     // draw 3 squares with that function.
-
-
     drawRect(10, 10);
     drawRect(30, 30);
     drawRect(50, 50);
-
-
-
-
   }
 
-  public static void drawRect(int x, int y){
-
+  public static void drawRect(int x, int y){$
     g.drawRect(x, y, 50, 50);
 
   }
@@ -55,5 +47,4 @@ public class SquarePositioning {
 
     }
   }
-
 }

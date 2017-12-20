@@ -20,6 +20,5 @@ public class Flower extends Plant {
   public boolean isThirsty(int water) {
     return super.isThirsty(water);
   }
-
-
 }
+

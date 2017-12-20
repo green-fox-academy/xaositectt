@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class PartyIndicator {
     public static void main(String[] args) {
-
         // Write a program that asks for two numbers
         // Thw first number represents the number of girls that comes to a party, the
         // second the boys
@@ -47,8 +46,5 @@ public class PartyIndicator {
         else if  (numGirls == 0) {
             System.out.println("It's gonna be a sausage fest:(");
         }
-
-
     }
-
 }

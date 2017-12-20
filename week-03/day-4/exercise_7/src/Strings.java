@@ -1,6 +1,7 @@
 public class Strings {
 
   public static void main(String[] args) {
+
     String myString = "xaxaxaxa";
     String from = "x";
     String to = "y";
@@ -16,5 +17,4 @@ public class Strings {
      return replace(s.replaceFirst(from, to), from, to);
     }
   }
-
 }

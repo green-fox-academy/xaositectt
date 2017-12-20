@@ -19,7 +19,6 @@ public class PallidaClass {
   private List<Mentor> mentorList;
 
   public PallidaClass() {
-
   }
 
   public PallidaClass(String className) {
@@ -30,17 +29,17 @@ public class PallidaClass {
     this.mentorList = mentorList;
   }
 
-  public void addStudent (Student student) {
+  public void addStudent(Student student) {
     this.studentList.add(student);
   }
 
-  public void addMentor (Mentor mentor) {
+  public void addMentor(Mentor mentor) {
     this.mentorList.add(mentor);
   }
 
-  public void info(){
-    System.out.println("Pallida "+ this.getClassName() + "class has"+ getStudentSize()
-            + " students and "+ getMentorSize() + " mentors.");
+  public void info() {
+    System.out.println("Pallida " + this.getClassName() + "class has" + getStudentSize()
+            + " students and " + getMentorSize() + " mentors.");
   }
 
   public String getClassName() {
@@ -48,10 +47,10 @@ public class PallidaClass {
   }
 
   public int getStudentSize() {
-    return  studentList.size();
+    return studentList.size();
   }
 
   public int getMentorSize() {
-    return  mentorList.size();
+    return mentorList.size();
   }
 }

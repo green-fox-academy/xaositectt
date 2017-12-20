@@ -4,13 +4,13 @@ public class Counter {
 
     count(5);
   }
+
   public static void count(int n) {
-    if (n==0) {
+    if (n == 0) {
       System.out.println(0);
-    }
-    else {
+    } else {
       System.out.println(n);
-      count(n-1);
+      count(n - 1);
     }
   }
 }

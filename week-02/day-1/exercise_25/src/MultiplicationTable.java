@@ -17,7 +17,6 @@ public class MultiplicationTable {
         // 8 * 15 = 120
         // 9 * 15 = 135
         // 10 * 15 = 150
-
         Scanner input = new Scanner(System.in);
 
         System.out.println("Give me a number:");
@@ -26,14 +25,9 @@ public class MultiplicationTable {
 
         System.out.println("This is the multiplication table of the number:");
 
-        for (int a = 1; a <= 10; a+=1) {
+        for (int a = 1; a <= 10; a++) {
 
             System.out.println(a +"*"+myNumber + " = " + a*myNumber);
-
         }
-
-
-
-
     }
 }

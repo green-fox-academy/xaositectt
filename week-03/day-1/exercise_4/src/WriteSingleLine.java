@@ -1,6 +1,9 @@
-import java.nio.file.*;
-import java.util.*;
-import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 // Open a file called "my-file.txt"
 // Write your name in it as a single line
 // If the program is unable to write the file,
@@ -10,6 +13,7 @@ public class WriteSingleLine {
   public static void main(String[] args) {
     writeMyfile();
   }
+
   public static void writeMyfile() {
     Scanner input = new Scanner(System.in);
     String myname = input.next();

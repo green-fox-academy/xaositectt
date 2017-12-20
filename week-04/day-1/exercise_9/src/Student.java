@@ -1,13 +1,12 @@
 public class Student {
   String subject;
 
-
   public Student() {
 
   }
 
   public String learn() {
-    subject="I am learning the subject";
+    subject = "I am learning the subject";
     return subject;
   }
 

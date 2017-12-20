@@ -1,12 +1,17 @@
 import javax.swing.*;
-
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FillRectangles {
 
-  public static void mainDraw(Graphics graphics){
+  //    Don't touch the code below
+  static int WINDOW_WIDTH = 800;
+  static int WINDOW_HEIGHT = 600;
+  static int WIDTH = WINDOW_WIDTH;
+  static int HEIGHT = WINDOW_HEIGHT - 23;
+
+  public static void mainDraw(Graphics graphics) {
     // draw four different size and color rectangles.
 
     graphics.setColor(Color.green);
@@ -20,18 +25,7 @@ public class FillRectangles {
 
     graphics.setColor(Color.red);
     graphics.fillRect(200, 200, 40, 40);
-
-
-
   }
-
-  //    Don't touch the code below
-  static int WINDOW_WIDTH = 800;
-  static int WINDOW_HEIGHT = 600;
-
-  static int WIDTH = WINDOW_WIDTH;
-  static int HEIGHT = WINDOW_HEIGHT -23;
-
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -41,13 +35,12 @@ public class FillRectangles {
     jFrame.setLocationRelativeTo(null);
     jFrame.setVisible(true);
   }
-  static class ImagePanel extends JPanel{
+
+  static class ImagePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
       mainDraw(graphics);
-
     }
   }
-
 }

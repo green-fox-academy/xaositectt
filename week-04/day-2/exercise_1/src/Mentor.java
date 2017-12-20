@@ -12,12 +12,12 @@ public class Mentor extends Person {
   private String level;
 
   Mentor() {
-    this.level="intermediate";
+    this.level = "intermediate";
   }
 
   Mentor(String name, int age, String gender, String level) {
     super(name, age, gender);
-    this.level="level";
+    this.level = "level";
   }
 
   public void getGoal() {
@@ -25,7 +25,7 @@ public class Mentor extends Person {
   }
 
   public void introduce() {
-    System.out.println("Hi, i'm "+this.getName() + ", a "+ this.getAge()+" old "+this.getGender()+" "+ this.getLevel()+ " mentor.");
+    System.out.println("Hi, i'm " + this.getName() + ", a " + this.getAge() + " old " + this.getGender() + " " + this.getLevel() + " mentor.");
   }
 
   public String getLevel() {
