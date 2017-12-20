@@ -11,27 +11,26 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Animals {
   public static void main(String[] args) {
     Path myPath = Paths.get("src/animals.txt");
-    writeMyFile(myPath, uniqueList(putIntoList(args)));
+    ArrayList<String> uniqueList = uniqueList(putIntoList(args));
+    writeMyFile(myPath, uniqueList);
   }
 
   public static ArrayList<String> putIntoList(String[] inputArray) {
     ArrayList<String> myList = new ArrayList<>();
-      for (int i = 0; i < inputArray.length; i++) {
-        myList.add(inputArray[i]);
+    for (int i = 0; i < inputArray.length; i++) {
+      myList.add(inputArray[i]);
     }
     return myList;
   }
 
   public static ArrayList<String> uniqueList(ArrayList<String> inputList) {
     ArrayList<String> uniqueList = new ArrayList<>();
-    if (inputList.size() >0) {
+    if (inputList.size() > 0) {
       uniqueList.add(inputList.get(0));
       for (int i = 0; i < inputList.size(); i++) {
         for (int j = 0; j < uniqueList.size(); j++) {
@@ -46,7 +45,7 @@ public class Animals {
     return uniqueList;
   }
 
-   public static void writeMyFile(Path inputPath, ArrayList<String> inputArrayList) {
+  public static void writeMyFile(Path inputPath, ArrayList<String> inputArrayList) {
     try {
       for (int i = 0; i < inputArrayList.size(); i++) {
         Files.write(inputPath, inputArrayList);
