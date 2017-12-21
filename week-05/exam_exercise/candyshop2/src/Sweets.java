@@ -1,15 +1,11 @@
 public class Sweets {
-  public static double pricePercentage = 100;
+
   private double price;
   private double sugarCost;
 
   public Sweets(double price, double sugarCost) {
-    this.price = (price * pricePercentage) / 100;
+    this.price = price;
     this.sugarCost = sugarCost;
-  }
-
-  public static double getPricePercentage() {
-    return pricePercentage;
   }
 
   //public static void setPricePercentage(double pricePercentage) {
@@ -17,8 +13,8 @@ public class Sweets {
   //}
 
   public static void setPricePercentage(double pricePercentage) {
-    Lollipop.setLollipopPrice(pricePercentage*Lollipop.getLollipopPrice());
-    Candy.setCandyPrice(pricePercentage*Candy.getCandyPrice());
+    Lollipop.setLollipopPrice((100+pricePercentage)/100*Lollipop.getLollipopPrice());
+    Candy.setCandyPrice((100+pricePercentage)/100*Candy.getCandyPrice());
   }
 
   public double getPrice() {

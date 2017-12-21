@@ -25,11 +25,11 @@ public class CandyShop {
 
   public void createSweets(int typeOfSweets) {
     if (typeOfSweets == 0) {
-      Sweets newCandy = new Candy(Candy.candyPrice * Sweets.pricePercentage / 100, Candy.sugarCost);
+      Sweets newCandy = new Candy(Candy.candyPrice, Candy.sugarCost);
       sugarInventory = sugarInventory - Candy.sugarCost;
       sweetsInventory.add(newCandy);
     } else if (typeOfSweets == 1) {
-      Sweets newLollipop = new Lollipop(Lollipop.lollipopPrice * Sweets.pricePercentage / 100, Lollipop.sugarCost);
+      Sweets newLollipop = new Lollipop(Lollipop.lollipopPrice, Lollipop.sugarCost);
       sweetsInventory.add(newLollipop);
       sugarInventory = sugarInventory - Lollipop.sugarCost;
     } else {
@@ -40,10 +40,10 @@ public class CandyShop {
   public void sell(int typeOfSweets, int amount) {
     if (typeOfSweets == 0) {
       remove(amount, Candy.class);
-      this.setMoney(money + (Candy.candyPrice * Sweets.pricePercentage / 100));
+      this.setMoney(money + (Candy.candyPrice));
     } else if (typeOfSweets == 1) {
       remove(amount, Lollipop.class);
-      this.setMoney(money + (Lollipop.lollipopPrice * Sweets.pricePercentage / 100));
+      this.setMoney(money + (Lollipop.lollipopPrice));
     } else {
       System.out.println("Not a valid type.");
     }
@@ -54,8 +54,8 @@ public class CandyShop {
     money = money - amountGrams*sugarPricePerGram;
   }
 
-  public void raise(double raiseAmount) {
-    Sweets.setPricePercentage(Sweets.pricePercentage + raiseAmount);
+  public void raise(double pricePercentage) {
+    Sweets.setPricePercentage(pricePercentage);
   }
 
   public void remove(int amount, Class<?> cls) {

@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Board extends JComponent implements KeyListener {
+public class Main extends JComponent implements KeyListener {
 
   int cicaaX;
   int cicaaY;
@@ -12,7 +12,7 @@ public class Board extends JComponent implements KeyListener {
   private int HEIGHT = WIDTH;
   Graphics graphics;
 
-  public Board() {
+  public Main() {
     //testBoxX = 0;
     //testBoxY = 0;
     // set the size of your draw board
@@ -24,7 +24,7 @@ public class Board extends JComponent implements KeyListener {
 
     // Here is how you set up a new window and adding our board to it
     JFrame frame = new JFrame("RPG Game");
-    Board board = new Board();
+    Main board = new Main();
     frame.add(board);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
