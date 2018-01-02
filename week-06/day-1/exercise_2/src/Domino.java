@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Domino implements Comparable{
+public class Domino implements Comparable {
 
   int firstDominoNum;
   int secondDominoNum;
@@ -30,6 +30,7 @@ public class Domino implements Comparable{
 
   @Override
   public int compareTo(Object o) {
-    return 0;
+    int compareNum = ((Domino) o).firstDominoNum;
+    return this.firstDominoNum - compareNum;
   }
 }
