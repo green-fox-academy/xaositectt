@@ -13,7 +13,6 @@ public abstract class StringedInstrument extends Instrument {
     this.numberOfStrings = 6;
   }
 
-
   public void sound() {
     super.play();
   }
