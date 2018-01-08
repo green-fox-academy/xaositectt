@@ -9,32 +9,32 @@ import java.util.stream.Collectors;
 public class App {
 
   public static void main(String[] args) {
-    Fox dög = new Fox("dög", "vörös", "vörös");
-    Fox bestia = new Fox("bestia", "sarki", "fehér");
-    Fox cafat = new Fox("cafat", "sivatagi", "sárga");
-    Fox marx = new Fox("marx", "sárga", "vörös");
-    Fox engels = new Fox("engels", "sarki", "fehér");
+    Fox trotski = new Fox("trotski", "red", "red");
+    Fox kadar = new Fox("kadar", "arctic", "white");
+    Fox sanders = new Fox("sanders", "fennec", "yellow");
+    Fox marx = new Fox("marx", "yellow", "red");
+    Fox engels = new Fox("engels", "arctic", "white");
 
-    List<Fox> rókák = new ArrayList<>();
-    rókák.add(dög);
-    rókák.add(bestia);
-    rókák.add(cafat);
-    rókák.add(marx);
-    rókák.add(engels);
+    List<Fox> foxes = new ArrayList<>();
+    foxes.add(trotski);
+    foxes.add(kadar);
+    foxes.add(sanders);
+    foxes.add(marx);
+    foxes.add(engels);
 
-    List<Fox> selectedList = rókák.stream()
-        .filter(p -> p.getColor().equals("vörös"))
-        .filter(q -> q.getType().equals("sárga"))
+    List<Fox> selectedList = foxes.stream()
+        .filter(p -> p.getColor().equals("red"))
+        .filter(q -> q.getType().equals("yellow"))
         .collect(Collectors.toList());
 
     System.out.println(selectedList);
-    System.out.println(selectFoxes(rókák));
+    System.out.println(selectFoxes(foxes));
   }
 
   public static List<Fox> selectFoxes(List<Fox> inputList) {
     List<Fox> selectFoxes = new ArrayList<>();
     for (Fox fox : inputList) {
-      if (fox.getType().equals("sárga") && fox.getColor().equals("vörös")) {
+      if (fox.getType().equals("red") && fox.getColor().equals("yellow")) {
         selectFoxes.add(fox);
       }
     }

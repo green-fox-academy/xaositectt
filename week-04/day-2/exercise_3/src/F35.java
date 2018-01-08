@@ -4,6 +4,6 @@
 
 public class F35 extends Plane {
   public F35() {
-    super(12, 50);
+    super("F35", 12, 50);
   }
 }

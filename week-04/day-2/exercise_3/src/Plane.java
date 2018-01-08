@@ -16,7 +16,8 @@ Eg. Filling an empty F35 with 300 would completely fill the storage of the aircr
 */
 
 
-public class Plane {
+public abstract class Plane {
+
   private String Type;
   private int maxAmmo;
   private int baseDamage;
@@ -26,7 +27,8 @@ public class Plane {
     this.ammo = 0;
   }
 
-  public Plane(int maxAmmo, int baseDamage) {
+  public Plane(String type, int maxAmmo, int baseDamage) {
+    this.Type = type;
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
   }
@@ -63,7 +65,7 @@ public class Plane {
   //It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
 
   public String getType() {
-    return (String) this.getClass().toString().replace("class ", "");
+    return Type;
   }
 
   public void setType(String type) {
@@ -96,7 +98,7 @@ public class Plane {
 
   public String getStatus() {
     String status = "Type: " + this.getType() + ", Ammo: " + this.getAmmo() + ", Base Damage:" +
-            this.getBaseDamage() + ", All Damage:" + this.getBaseDamage() * this.getAmmo();
+        this.getBaseDamage() + ", All Damage:" + this.getBaseDamage() * this.getAmmo();
     return status;
   }
 }
