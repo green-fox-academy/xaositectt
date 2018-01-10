@@ -10,7 +10,7 @@ public class Show {
 
   @RequestMapping(value = "/show")
   public String hello(Model model) {
-    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    BankAccount simba = new BankAccount("Simba", 2000, "lion", "good");
     model.addAttribute("simba", simba);
     model.addAttribute("balance", String.format("%.2f", simba.getBalance()));
     return "simba";

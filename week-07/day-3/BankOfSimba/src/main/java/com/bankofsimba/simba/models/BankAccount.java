@@ -3,14 +3,17 @@ package com.bankofsimba.simba.models;
 //Add the fields name, balance, animalType in it
 
 public class BankAccount {
+
   private String name;
   private double balance;
   private String animalType;
+  private String alignment;
 
-  public BankAccount(String name, double balance, String animalType) {
+  public BankAccount(String name, double balance, String animalType, String alignment) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
+    this.alignment = alignment;
   }
 
   public BankAccount() {
@@ -38,5 +41,13 @@ public class BankAccount {
 
   public void setAnimalType(String animalType) {
     this.animalType = animalType;
+  }
+
+  public String getAlignment() {
+    return alignment;
+  }
+
+  public void setAlignment(String alignment) {
+    this.alignment = alignment;
   }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thymeleaf Exercise #</title>
+  <meta charset="utf-8"/>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th {
+      height: 40px;
+      background-color: lightgray;
+    }
+    td:hover {
+      background-color: lightblue;
+    }
+
+  </style>
+  <!--<link rel="stylesheet" href="style.css"/>-->
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>INDEX</th>
+    <th>NAME</th>
+    <th>BALANCE</th>
+    <th>SPECIES</th>
+    <th>Rank</th>
+    <th>Alignment</th>
+
+  </tr>
+  <tr th:each="acc : ${accountlist}">
+    <td th:text="${accStat.index}"/>
+    <td th:text="${acc.name}"/>
+    <td th:text="${acc.balance}"/>
+    <td th:text="${acc.animalType}"/>
+    <td th:if="${acc.name} == 'Simba'" th:text="King" style="background-color: yellow"/>
+    <td th:unless="${acc.name} == 'Simba'" th:text="peasant"/>
+    <td th:text="${acc.alignment}"/>
+
+
+    <!--<th th:switch="${acc.alignment}">
+      <span th:case="'bad'" th:text="bad"/>
+      <span th:case="'good'" th:text="good"/>
+    </th>>-->
+  </tr>
+</table>
+
+</body>
+</html>
