@@ -29,6 +29,7 @@
     <th>SPECIES</th>
     <th>Rank</th>
     <th>Alignment</th>
+    <th>Deposit</th>
 
   </tr>
   <tr th:each="acc : ${accountlist}">
@@ -39,6 +40,7 @@
     <td th:if="${acc.name} == 'Simba'" th:text="King" style="background-color: yellow"/>
     <td th:unless="${acc.name} == 'Simba'" th:text="peasant"/>
     <td th:text="${acc.alignment}"/>
+    <td><button type="button" onclick="alert('Hello world!')">Deposit</button></td>
 
 
     <!--<th th:switch="${acc.alignment}">
