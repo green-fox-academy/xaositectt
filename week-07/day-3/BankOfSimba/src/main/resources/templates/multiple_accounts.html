@@ -3,20 +3,6 @@
 <head>
   <title>Thymeleaf Exercise #</title>
   <meta charset="utf-8"/>
-  <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-    th {
-      height: 40px;
-      background-color: lightgray;
-    }
-    td:hover {
-      background-color: lightblue;
-    }
-
-  </style>
   <link rel="stylesheet" th:href="@{/style.css}" />
   <!--<link rel="stylesheet" href="style.css"/>-->
 </head>
@@ -24,33 +10,38 @@
 
 <table>
   <tr>
-    <th>INDEX</th>
+    <th>PORTRAIT</th>
     <th>NAME</th>
-    <th>BALANCE</th>
-    <th>SPECIES</th>
-    <th>Rank</th>
-    <th>Alignment</th>
-
+    <th>CLASS</th>
+    <th>EXP.</th>
+    <th>FIGHT</th>
+    <th>FORGET</th>
+    <th>LEVEL</th>
+    <th>ALIGNMENT</th>
 
   </tr>
   <tr th:each="acc : ${accountlist}">
-    <td th:text="${accStat.index}"/>
+    <td><img th:src="@{${acc.portrait}}" width="50"/></td>
     <td th:text="${acc.name}"/>
-    <td th:text="${acc.balance}"/>
-    <td th:text="${acc.animalType}"/>
-    <td th:if="${acc.name} == 'Simba'" th:text="King" style="background-color: yellow"/>
-    <td th:unless="${acc.name} == 'Simba'" th:text="peasant"/>
+    <td th:text="${acc.myClass}"/>
+    <td th:text="${acc.experience}"/>
+    <td>
+      <form action="#" th:action="@{/multiple_accounts/} + ${acc.name} + '+'" method="post">
+        <input type="submit" value="+"/>
+      </form>
+    </td>
+    <td>
+      <form action="#" th:action="@{/multiple_accounts/} + ${acc.name}+'-'" method="post">
+        <input type="submit" value="-"/>
+      </form>
+    </td >
+    <td th:text="${#numbers.formatDecimal(acc.experience/1000, 1, 0, 'POINT')}"/>
     <td th:text="${acc.alignment}"/>
-    <!--<th th:switch="${acc.alignment}">
-      <span th:case="'bad'" th:text="bad"/>
-      <span th:case="'good'" th:text="good"/>
-    </th>>-->
   </tr>
 </table>
-<!--<form class="button" th:action="${MulAccounts.depositAll}" th:object="" method="post">
-  <input type="submit" value="deposit"/></form>-->
-<form class="button" th:action="@{/multiple_accounts}" method="post">
-  <input type="submit" value="deposit"/></form>
+
+<form id="bottom" class="button" th:action="@{/multiple_accounts/*}" method="post">
+  <input type="submit" value="Fight with all"/></form>
 
 </body>
 </html>
