@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml">
 <head>
   <title>Thymeleaf Exercise #</title>
   <meta charset="utf-8"/>
@@ -17,6 +17,7 @@
     }
 
   </style>
+  <link rel="stylesheet" th:href="@{/style.css}" />
   <!--<link rel="stylesheet" href="style.css"/>-->
 </head>
 <body>
@@ -29,7 +30,7 @@
     <th>SPECIES</th>
     <th>Rank</th>
     <th>Alignment</th>
-    <th>Deposit</th>
+
 
   </tr>
   <tr th:each="acc : ${accountlist}">
@@ -40,15 +41,16 @@
     <td th:if="${acc.name} == 'Simba'" th:text="King" style="background-color: yellow"/>
     <td th:unless="${acc.name} == 'Simba'" th:text="peasant"/>
     <td th:text="${acc.alignment}"/>
-    <td><button type="button" onclick="alert('Hello world!')">Deposit</button></td>
-
-
     <!--<th th:switch="${acc.alignment}">
       <span th:case="'bad'" th:text="bad"/>
       <span th:case="'good'" th:text="good"/>
     </th>>-->
   </tr>
 </table>
+<!--<form class="button" th:action="${MulAccounts.depositAll}" th:object="" method="post">
+  <input type="submit" value="deposit"/></form>-->
+<form class="button" th:action="@{/multiple_accounts}" method="post">
+  <input type="submit" value="deposit"/></form>
 
 </body>
 </html>
