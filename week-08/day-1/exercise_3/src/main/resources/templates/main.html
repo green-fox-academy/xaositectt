@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Title</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<h1>This is my todo list</h1>
+
+<table style="width:100%">
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>isurgent</th>
+    <th>isdone</th>
+  </tr>
+  <tr th:each="todo : ${todos}">
+    <td th:text="${todo.id}">Jill</td>
+    <td th:text="${todo.title}">Jill</td>
+    <td th:text="${todo.isurgent}">Jill</td>
+    <td th:text="${todo.isdone}">Jill</td>
+
+  </tr>
+
+</table>
+</body>
+</html>

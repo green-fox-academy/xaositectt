@@ -3,6 +3,7 @@ package com.greenfoxacademy.springstart.controllers;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class HelloWebController {
 
 
   @RequestMapping("/web/greeting")
-  public String greeting(Model model, @RequestParam("name") String content) {
+  public String greeting(Model model, @RequestParam(value = "name", required=false) String content) {
     model.addAttribute("name", content);
     model.addAttribute("times", counter.getAndIncrement());
     model.addAttribute("greeting", hellos[(int)(Math.random()*hellos.length)]);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>id</th>
+    <th>topic</th>
+    <th>date</th>
+  </tr>
+
+  <tr th:each="talk : ${talks}">
+    <td th:text="${talk.id}"></td>
+    <td th:text="${talk.topic}"></td>
+    <td th:text="${talk.date}"></td>
+  </tr>
+</table>
+
+<form action="#" th:action="@{/talks/create}" th:object="${newTalk}" method="post">
+  <input type="hidden" name="id" th:field="*{id}"/>
+  <input type="text" name="topic" th:field="*{topic}"/>
+  <input type="text" name="date" th:field="*{date}"/>
+  <input type="submit" value="Add"/>
+</form>
+
+
+</body>
+</html>
