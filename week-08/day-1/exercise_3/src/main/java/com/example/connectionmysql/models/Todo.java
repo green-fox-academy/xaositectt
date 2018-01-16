@@ -1,5 +1,6 @@
 package com.example.connectionmysql.models;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,17 +8,20 @@ import javax.persistence.Id;
 
 @Entity
 public class Todo {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String title;
   private boolean isurgent;
   private boolean isdone;
+  private Date date;
 
   public Todo(String title, boolean isurgent, boolean isdone) {
     this.title = title;
     this.isurgent = isurgent;
     this.isdone = isdone;
+    this.date= new Date();
   }
 
   public Todo() {
@@ -54,4 +58,9 @@ public class Todo {
   public void setIsdone(boolean isdone) {
     this.isdone = isdone;
   }
+
+  public Date getDate() {
+    return date;
+  }
+
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{todo/addd/add}" th:object="${newTodo}" method="post">
+  <input type="text" name="title"  th:field="*{title}"/>
+  <input type="submit" value="Add"/>
+  <input type="checkbox" name="vehicle"  value="true" th:field="*{isurgent}"/>isurgent
+  <input type="checkbox" name="vehicle2"  value="true"  th:field="*{isdone}"/>isdone
+</form>
+
+</body>
+</html>

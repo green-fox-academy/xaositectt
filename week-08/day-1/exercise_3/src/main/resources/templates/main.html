@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Title</title>
-  <link rel="stylesheet" th:href="@{/style.css}" />
+  <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
 <body>
-<h1>This is my todo list</h1>
+<h1>todo list</h1>
 
+<a href="/addd">add new todo</a>
 <table style="width:100%">
   <tr>
     <th>id</th>
     <th>title</th>
     <th>isurgent</th>
     <th>isdone</th>
+    <th>date</th>
+    <th>delete</th>
+    <th>edit</th>
   </tr>
   <tr th:each="todo : ${todos}">
     <td th:text="${todo.id}">Jill</td>
     <td th:text="${todo.title}">Jill</td>
     <td th:text="${todo.isurgent}">Jill</td>
     <td th:text="${todo.isdone}">Jill</td>
+    <td th:text="${todo.date}">Jill</td>
+    <td><a th:href="@{/delete/} + ${todo.id}">delete</a></td>
+    <td><a th:href="@{edit}">edit</a></td>>
 
   </tr>
 
-</table>
+  </table>
+<!--<form action="#" th:action="@{/todo/create}" th:object="${newTodo}" method="post">
+  <input type="text" name="title" th:field="*{title}"/>
+  <input type="submit" value="Add"/>
+  <input type="checkbox" name="vehicle"  value="true" th:field="*{isurgent}"/>isurgent
+  <input type="checkbox" name="vehicle2"  value="true" th:field="*{isdone}"/>isdone
+</form>-->
 </body>
 </html>
