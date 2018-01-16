@@ -43,7 +43,7 @@ public class Todo {
     this.title = title;
   }
 
-  public boolean isIsurgent() {
+  public boolean getIsurgent() {
     return isurgent;
   }
 
@@ -51,7 +51,7 @@ public class Todo {
     this.isurgent = isurgent;
   }
 
-  public boolean isIsdone() {
+  public boolean getIsdone() {
     return isdone;
   }
 
@@ -63,4 +63,7 @@ public class Todo {
     return date;
   }
 
+  public void setDate(Date date) {
+    this.date = date;
+  }
 }

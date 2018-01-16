@@ -2,6 +2,8 @@ package com.example.connectionmysql.controllers;
 
 import com.example.connectionmysql.models.Todo;
 import com.example.connectionmysql.repository.TodoRepo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -32,12 +34,12 @@ public class TodoController {
 
     } else if (isit) {
       todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
-          .filter(p -> p.isIsdone())
+          .filter(p -> p.getIsdone())
           .collect(Collectors.toList());
 
     } else {
       todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
-          .filter(p -> !p.isIsdone())
+          .filter(p -> !p.getIsdone())
           .collect(Collectors.toList());
     }
     //this is needed if the button on at the same page. We create an empty object with this,
@@ -49,22 +51,26 @@ public class TodoController {
   }
 
   @RequestMapping(value = "/addd")
-  public String getRanks() {
+  public String addNew(Model model) {
+    model.addAttribute("newTodo", new Todo());
     return "add_data";
   }
 
   //I pass the object from the input fields to this @ModelAttribute bullshit. Apparently
   //it needs to be stored in a method like this, object type has to be correct, otherwise
   //the form with the object variables doesn't work.
-  @ModelAttribute(value = "newTodo")
-  public Todo myTodo() {
-    return new Todo();
-  }
+
+//  @ModelAttribute(value = "newTodo")
+//  public Todo myTodo() {
+//    return new Todo();
+//  }
 
   //apparently the object gets passed to this @Modellatribute where the form takes us.
   //Here I can save it to the repo.
+
   @PostMapping(value = "/todo/addd/add")
-  public ModelAndView action(@ModelAttribute Todo todo) {
+  public ModelAndView add(@ModelAttribute Todo todo) {
+    todo.setDate(new Date());
     todoRepo.save(todo);
     return new ModelAndView("redirect:/todo");
   }
@@ -75,10 +81,24 @@ public class TodoController {
     return new ModelAndView("redirect:/todo");
   }
 
-  @RequestMapping("/edit")
-  public String edit() {
+  @GetMapping("/edit/{todoid}")
+  public String editForm(@PathVariable int todoid, Model model) {
+    Todo todo = todoRepo.findOne(todoid);
+    model.addAttribute("newTodo", todo);
     return "edit";
   }
 
+  @PostMapping("/edit/{todoid}")
+  public ModelAndView edit(@PathVariable int todoid, @ModelAttribute Todo todo) {
+    todo.setId(todoid);
+    todoRepo.save(todo);
+    return new ModelAndView("redirect:/todo");
+  }
+
+//  @PostMapping("/edit/{todoid}/")
+//  public ModelAndView edit(@PathVariable int todoid,  @ModelAttribute Todo todo){
+//    todoRepo.save(todo);
+//    return new ModelAndView("redirect:/todo");
+//  }
 }
 
