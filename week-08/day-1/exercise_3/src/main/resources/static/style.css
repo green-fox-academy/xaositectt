@@ -1,7 +1,12 @@
-/*th {
-  background-color: lightsteelblue;
+body {
+  background-color: rgb(229, 240, 255);
 }
 
+table {
+  background-color: rgba(0, 212, 255, 0.2);
+}
+
+/*
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;

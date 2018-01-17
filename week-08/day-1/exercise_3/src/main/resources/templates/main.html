@@ -3,8 +3,13 @@
 <head>
   <title>Title</title>
 
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+        integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous"/>
+
   <link rel="stylesheet" th:href="@{/style.css}"/>
-  <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 
   <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
   <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
@@ -29,7 +34,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-5">
 
   <h1>todo list</h1>
 
@@ -38,8 +43,16 @@
 
 <div class="container form-group">
 
-  <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
+  <input class="form-control" id="myInput" type="text" placeholder="Quick filter.."/>
 
+</div>
+
+<div class="container form-group">
+  <form th:action="@{search}" method="get">
+    <input class="form-control" type="text" name="mySearch" placeholder="Search in title"/>
+
+    <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+  </form>
 </div>
 
 <div class="container">
@@ -59,7 +72,9 @@
       <tbody id="myTable">
       <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}">Jill</td>
-        <td th:text="${todo.title}">Jill</td>
+
+        <td><a th:href="@{personal} +'/'+ ${todo.id}" th:text="${todo.title}">element</a></td>
+
         <td th:text="${todo.isurgent}">Jill</td>
         <td th:text="${todo.isdone}">Jill</td>
         <td th:text="${todo.date}">Jill</td>

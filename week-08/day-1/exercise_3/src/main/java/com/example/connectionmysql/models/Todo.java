@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+//@Table
 public class Todo {
 
   @Id
@@ -21,7 +23,7 @@ public class Todo {
     this.title = title;
     this.isurgent = isurgent;
     this.isdone = isdone;
-    this.date= new Date();
+    this.date = new Date();
   }
 
   public Todo() {

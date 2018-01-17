@@ -1,8 +1,8 @@
 package com.example.connectionmysql.controllers;
 
+
 import com.example.connectionmysql.models.Todo;
 import com.example.connectionmysql.repository.TodoRepo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -95,10 +94,19 @@ public class TodoController {
     return new ModelAndView("redirect:/todo");
   }
 
-//  @PostMapping("/edit/{todoid}/")
-//  public ModelAndView edit(@PathVariable int todoid,  @ModelAttribute Todo todo){
-//    todoRepo.save(todo);
-//    return new ModelAndView("redirect:/todo");
-//  }
-}
 
+  @GetMapping("/search")
+  public String search(@RequestParam(value = "mySearch", required = false) String mySearch,
+      Model model) {
+    List<Todo> todos = todoRepo.findAllByTitleContains(mySearch);
+    model.addAttribute("todos", todos);
+    return "main";
+  }
+
+  @GetMapping("/personal/{todoid}")
+  public String personal(@PathVariable Integer todoid, Model model){
+    Todo thisTodo = todoRepo.findOne(todoid);
+    model.addAttribute("thisTodo", thisTodo);
+    return "personal";
+  }
+}
