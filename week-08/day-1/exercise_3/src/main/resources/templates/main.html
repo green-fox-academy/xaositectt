@@ -64,7 +64,7 @@
         <td th:text="${todo.isdone}">Jill</td>
         <td th:text="${todo.date}">Jill</td>
         <td><a class="btn btn-default" th:href="@{/delete/} + ${todo.id}">delete</a></td>
-        <td><a class="btn btn-default" th:href="@{edit}">edit</a></td>
+        <td><a class="btn btn-default" th:href="@{/edit/} + ${todo.id}">edit</a></td>
 
       </tr>
       </tbody>
@@ -76,7 +76,7 @@
 
 <div class="container">
 
-  <a href="/addd" data-toggle="tooltip" data-placement="right" title="add new todos to the table">add
+  <a href="/addd" data-toggle="tooltip" data-placement="right">add
     new todo</a>
 
 </div>

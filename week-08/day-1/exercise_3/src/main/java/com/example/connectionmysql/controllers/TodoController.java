@@ -24,7 +24,7 @@ public class TodoController {
   @Autowired
   TodoRepo todoRepo;
 
-  @RequestMapping(value = "/todo")
+  @GetMapping(value = "/todo")
   public String showdata(Model model,
       @RequestParam(value = "isit", required = false) Boolean isit) {
     List<Todo> todos;
@@ -50,7 +50,7 @@ public class TodoController {
     return "main";
   }
 
-  @RequestMapping(value = "/addd")
+  @GetMapping(value = "/addd")
   public String addNew(Model model) {
     model.addAttribute("newTodo", new Todo());
     return "add_data";
