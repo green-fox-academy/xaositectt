@@ -3,10 +3,10 @@ package com.example.connectionmysql.controllers;
 
 import com.example.connectionmysql.models.Todo;
 import com.example.connectionmysql.repository.TodoRepo;
+import com.example.connectionmysql.services.TodoService;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TodoController {
 
+//  @Autowired
+//  TodoRepo todoRepo;
+
   @Autowired
-  TodoRepo todoRepo;
+  TodoService todoService;
 
   @GetMapping(value = "/todo")
   public String showdata(Model model,
@@ -29,17 +32,27 @@ public class TodoController {
     List<Todo> todos;
 
     if (isit == null) {
-      todos = (List<Todo>) todoRepo.findAll();
+      todos = todoService.getAllTodos();
+      //todos = (List<Todo>) todoRepo.findAll();
 
     } else if (isit) {
-      todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
+      todos = todoService.getAllTodos().stream()
           .filter(p -> p.getIsdone())
           .collect(Collectors.toList());
 
+//      todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
+//          .filter(p -> p.getIsdone())
+//          .collect(Collectors.toList());
+
     } else {
-      todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
+      todos = todoService.getAllTodos().stream()
           .filter(p -> !p.getIsdone())
           .collect(Collectors.toList());
+
+//      todos = StreamSupport.stream(todoRepo.findAll().spliterator(), false)
+//          .filter(p -> !p.getIsdone())
+//          .collect(Collectors.toList());
+
     }
     //this is needed if the button on at the same page. We create an empty object with this,
     //create the attributes in the form, link the form to an endpoint where the method
@@ -70,19 +83,19 @@ public class TodoController {
   @PostMapping(value = "/todo/addd/add")
   public ModelAndView add(@ModelAttribute Todo todo) {
     todo.setDate(new Date());
-    todoRepo.save(todo);
+    todoService.create(todo);
     return new ModelAndView("redirect:/todo");
   }
 
   @GetMapping("/delete/{todoid}")
   public ModelAndView delete(@PathVariable Integer todoid) {
-    todoRepo.delete(todoid);
+    todoService.delete(todoid);
     return new ModelAndView("redirect:/todo");
   }
 
   @GetMapping("/edit/{todoid}")
   public String editForm(@PathVariable int todoid, Model model) {
-    Todo todo = todoRepo.findOne(todoid);
+    Todo todo = todoService.getTodo(todoid);
     model.addAttribute("newTodo", todo);
     return "edit";
   }
@@ -90,7 +103,7 @@ public class TodoController {
   @PostMapping("/edit/{todoid}")
   public ModelAndView edit(@PathVariable int todoid, @ModelAttribute Todo todo) {
     todo.setId(todoid);
-    todoRepo.save(todo);
+    todoService.modifyTodo(todo);
     return new ModelAndView("redirect:/todo");
   }
 
@@ -98,14 +111,14 @@ public class TodoController {
   @GetMapping("/search")
   public String search(@RequestParam(value = "mySearch", required = false) String mySearch,
       Model model) {
-    List<Todo> todos = todoRepo.findAllByTitleContains(mySearch);
+    List<Todo> todos = todoService.getAllTodos();
     model.addAttribute("todos", todos);
     return "main";
   }
 
   @GetMapping("/personal/{todoid}")
-  public String personal(@PathVariable Integer todoid, Model model){
-    Todo thisTodo = todoRepo.findOne(todoid);
+  public String personal(@PathVariable Integer todoid, Model model) {
+    Todo thisTodo = todoService.getTodo(todoid);
     model.addAttribute("thisTodo", thisTodo);
     return "personal";
   }

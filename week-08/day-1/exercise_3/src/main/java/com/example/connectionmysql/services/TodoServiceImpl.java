@@ -7,36 +7,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TodoServiceDBI implements TodoService {
+public class TodoServiceImpl implements TodoService {
 
   @Autowired
-  TodoRepo talksRepository;
+  TodoRepo todoRepository;
 
 
   @Override
   public List<Todo> getAllTodos() {
     List<Todo> todos;
-    todos = (List<Todo>) talksRepository.findAll();
+    todos = (List<Todo>) todoRepository.findAll();
     return todos;
   }
 
   @Override
   public Todo getTodo(int id) {
-    return new Todo();
+    Todo todo;
+    todo = todoRepository.findOne(id);
+    return todo;
   }
 
   @Override
   public void modifyTodo(Todo todo) {
-
+    todoRepository.save(todo);
   }
 
   @Override
   public void create(Todo todo) {
-
+    todoRepository.save(todo);
   }
 
   @Override
   public void delete(int id) {
-
+    todoRepository.delete(id);
   }
 }
