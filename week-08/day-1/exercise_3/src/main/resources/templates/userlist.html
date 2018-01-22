@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+        integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous"/>
+
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+          integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+          crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div class="container form-group  mt-3">
+
+  <input class="form-control" id="myInput" type="text" placeholder="Quick Filter.."/>
+
+</div>
+
+<div class="container form-group">
+  <form th:action="@{/todo/searcha}" method="get">
+    <input class="form-control" type="text" name="mySearch" placeholder="Search in username.."/>
+
+    <input type="submit" value="Search" class="btn btn-primary mt-3"/>
+    <input type="button" onclick="location.href='/todo/userlist';" value="Return to full list"
+           class="btn btn-primary mt-3"/>
+  </form>
+</div>
+
+
+<div class="container">
+
+  <div class="table-responsive">
+
+    <table style="width:100%" class="table table-hover">
+
+      <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>email</th>
+        <th>delete</th>
+        <th>edit</th>
+      </tr>
+
+      <tbody id="myTable">
+
+      <tr th:each="assignee : ${assignees}">
+
+        <td th:text="${assignee.id}">Jill</td>
+        <td th:text="${assignee.name}">Jill</td>
+        <td th:text="${assignee.email}">Jill</td>
+        <td><a class="btn btn-default" th:href="@{/todo/deletea/} + ${assignee.id}">delete</a></td>
+        <td><a class="btn btn-default" th:href="@{/todo/edita/} + ${assignee.id}">edit</a></td>
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+
+<div class="container mt-5">
+  <div class="form-group">
+    <form th:action="@{addp}" th:object="${newAssignee}" method="post">
+
+      <input type="hidden" name="id" th:field="*{id}"/>
+
+      <label for="input1"><h3>Name:</h3></label>
+      <input type="text" name="title" th:field="*{name}" class="form-control input-sm"
+             id="input1"/>
+
+      <label for="input2"><h3>e-mail:</h3></label>
+      <input type="text" name="title" th:field="*{email}" class="form-control input-sm"
+             id="input2"/>
+
+      <input type="submit" value="Add" class="btn-primary mt-3"/>
+
+    </form>
+  </div>
+</div>
+<div class="container">
+
+  <div class="table-responsive">
+
+    <a class="btn btn-default" th:href="@{/todo/}">back to main</a>
+
+  </div>
+</div>
+
+</body>
+</html>

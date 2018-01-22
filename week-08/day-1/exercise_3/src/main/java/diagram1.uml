@@ -2,12 +2,30 @@
 <Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
-  <nodes />
+  <nodes>
+    <node x="0.0" y="616.0">com.example.connectionmysql.models.Todo</node>
+    <node x="0.0" y="0.0">com.example.connectionmysql.models.Assignee</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
-  <SelectedNodes />
-  <Categories />
+  <edges>
+    <edge source="com.example.connectionmysql.models.Todo" target="com.example.connectionmysql.models.Assignee">
+      <point x="-62.19999999999993" y="-357.0" />
+      <point x="-62.200000000000045" y="283.0" />
+    </edge>
+    <edge source="com.example.connectionmysql.models.Assignee" target="com.example.connectionmysql.models.Todo">
+      <point x="124.39999999999998" y="283.0" />
+      <point x="124.4" y="-357.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.8000000000000003" x="181.0138439991382" y="599.3456976030504" />
+  <SelectedNodes>
+    <node>com.example.connectionmysql.models.Todo</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
 </Diagram>
 

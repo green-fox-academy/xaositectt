@@ -16,11 +16,11 @@
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="form-group">
-    <form th:action="@{todo/addd/add}" th:object="${newTodo}" method="post">
+    <form th:action="@{/todo/addd/add}" th:object="${newTodo}" method="post">
 
-      <label for="inputsm"><h1>Name:</h1></label>
+      <label for="inputsm"><h3>Name:</h3></label>
       <input type="text" name="title" th:field="*{title}" class="form-control input-sm"
              id="inputsm"/>
 
@@ -34,8 +34,8 @@
       <input type="checkbox" value="true" th:field="*{isdone}"
              class="checkbox ml-4"/><label class="ml-1">isdone</label>
 
-
     </form>
+
   </div>
 </div>
 

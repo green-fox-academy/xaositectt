@@ -3,13 +3,13 @@
 <head>
   <title>Title</title>
 
-
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
         integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
         crossorigin="anonymous"/>
 
   <link rel="stylesheet" th:href="@{/style.css}"/>
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -24,24 +24,10 @@
 </head>
 <body>
 
-<div class="container mt-3">
-  <div class="form-group">
-    <form action="#" th:action="@{/todo/edit/} + ${newTodo.id}" th:object="${newTodo}"
-          method="post">
+<div th:each="post : ${posts}">
 
-      <!--<input type="hidden" th:field="*{id}"/>-->
-      <h3>Todo:</h3>
-      <input type="text" name="title" th:field="*{title}" class="form-control input-sm"
-             id="inputsm"/>
+  <div th:text="${post.title}">ah</div>
 
-      <input type="submit" value="Edit" class="btn btn-primary mt-3"/>
-
-      <input type="checkbox" class="checkbox ml-4" th:field="*{isurgent}"/><label>isurgent</label>
-
-      <input type="checkbox" class="checkbox ml-4" th:field="*{isdone}"/><label>isdone</label>
-
-    </form>
-  </div>
 </div>
 
 </body>

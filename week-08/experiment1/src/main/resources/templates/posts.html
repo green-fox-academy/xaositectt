@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="copy">
+  <h3>Hello</h3>
+
+  <table>
+
+    <tr>
+
+      <th>id</th>
+      <th>title</th>
+      <th>date</th>
+      <th>time</th>
+
+    </tr>
+
+    <tr th:each="post : ${posts}">
+
+      <th th:text="${post.id}"></th>
+      <th th:text="${post.title}"></th>
+      <th th:text="${post.date}"></th>
+      <th>
+
+
+      </th>
+
+    </tr>
+
+  </table>
+
+</div>
+</body>
+</html>

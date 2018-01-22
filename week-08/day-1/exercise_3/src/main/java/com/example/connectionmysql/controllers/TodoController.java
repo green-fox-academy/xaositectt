@@ -2,7 +2,7 @@ package com.example.connectionmysql.controllers;
 
 
 import com.example.connectionmysql.models.Todo;
-import com.example.connectionmysql.repository.TodoRepo;
+import com.example.connectionmysql.services.AssigneeService;
 import com.example.connectionmysql.services.TodoService;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +25,9 @@ public class TodoController {
 
   @Autowired
   TodoService todoService;
+
+  @Autowired
+  AssigneeService assigneeService;
 
   @GetMapping(value = "/todo")
   public String showdata(Model model,
@@ -59,10 +62,11 @@ public class TodoController {
     //adds it to the repository, and redirect back to the main view.
     // model.addAttribute("newTodo", new Todo());
     model.addAttribute("todos", todos);
+    model.addAttribute("assignees", assigneeService.getAllAssignees());
     return "main";
   }
 
-  @GetMapping(value = "/addd")
+  @GetMapping(value = "/todo/addd")
   public String addNew(Model model) {
     model.addAttribute("newTodo", new Todo());
     return "add_data";
@@ -87,36 +91,39 @@ public class TodoController {
     return new ModelAndView("redirect:/todo");
   }
 
-  @GetMapping("/delete/{todoid}")
+  @GetMapping("/todo/delete/{todoid}")
   public ModelAndView delete(@PathVariable Integer todoid) {
     todoService.delete(todoid);
     return new ModelAndView("redirect:/todo");
   }
 
-  @GetMapping("/edit/{todoid}")
+  @GetMapping("/todo/edit/{todoid}")
   public String editForm(@PathVariable int todoid, Model model) {
     Todo todo = todoService.getTodo(todoid);
     model.addAttribute("newTodo", todo);
     return "edit";
   }
 
-  @PostMapping("/edit/{todoid}")
+  @PostMapping("/todo/edit/{todoid}")
   public ModelAndView edit(@PathVariable int todoid, @ModelAttribute Todo todo) {
     todo.setId(todoid);
+    todo.setDate(new Date());
     todoService.modifyTodo(todo);
     return new ModelAndView("redirect:/todo");
   }
 
 
-  @GetMapping("/search")
+  @GetMapping("/todo/searchm")
   public String search(@RequestParam(value = "mySearch", required = false) String mySearch,
       Model model) {
-    List<Todo> todos = todoService.getAllTodos();
+    List<Todo> todos = todoService.getAllTodos().stream().
+        filter(p -> p.getTitle().contains(mySearch))
+        .collect(Collectors.toList());
     model.addAttribute("todos", todos);
     return "main";
   }
 
-  @GetMapping("/personal/{todoid}")
+  @GetMapping("/todo/personal/{todoid}")
   public String personal(@PathVariable Integer todoid, Model model) {
     Todo thisTodo = todoService.getTodo(todoid);
     model.addAttribute("thisTodo", thisTodo);

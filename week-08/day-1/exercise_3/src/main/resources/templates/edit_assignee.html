@@ -4,10 +4,7 @@
   <title>Title</title>
 
 
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
-        integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-        crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
 
   <link rel="stylesheet" th:href="@{/style.css}"/>
 
@@ -24,21 +21,20 @@
 </head>
 <body>
 
-<div class="container mt-3">
+<div class="container mt-5">
   <div class="form-group">
-    <form action="#" th:action="@{/todo/edit/} + ${newTodo.id}" th:object="${newTodo}"
-          method="post">
+    <form action="#" th:action="@{/todo/edita/} + ${newAssigneeEdit.id}" th:object="${newAssigneeEdit}" method="post">
 
       <!--<input type="hidden" th:field="*{id}"/>-->
-      <h3>Todo:</h3>
-      <input type="text" name="title" th:field="*{title}" class="form-control input-sm"
+      <label for="inputsm">Name:</label>
+      <input type="text" name="title" th:field="*{name}" class="form-control input-sm"
              id="inputsm"/>
 
+      <label for="inputsm2">Email:</label>
+      <input type="text" name="title" th:field="*{email}" class="form-control input-sm"
+             id="inputsm2"/>
+
       <input type="submit" value="Edit" class="btn btn-primary mt-3"/>
-
-      <input type="checkbox" class="checkbox ml-4" th:field="*{isurgent}"/><label>isurgent</label>
-
-      <input type="checkbox" class="checkbox ml-4" th:field="*{isdone}"/><label>isdone</label>
 
     </form>
   </div>

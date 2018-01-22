@@ -11,8 +11,18 @@
 
   <link rel="stylesheet" th:href="@{/style.css}"/>
 
-  <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
-  <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+          integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+          crossorigin="anonymous"></script>
+
+
 
   <script>
     $(document).ready(function () {
@@ -34,26 +44,33 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-3">
 
-  <h1>todo list</h1>
-
-</div>
-
-
-<div class="container form-group">
-
-  <input class="form-control" id="myInput" type="text" placeholder="Quick Filter.."/>
+  <h3>todo list</h3>
 
 </div>
 
-<div class="container form-group">
-  <form th:action="@{search}" method="get">
-    <input class="form-control" type="text" name="mySearch" placeholder="Search in title"/>
+<div class="container form-group  mt-3">
 
-    <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+  <input class="form-control" id="myInput" type="text" placeholder="Quick Filter.."
+         style='width: 300px;'/> <i class="fa fa-search"></i>
+
+</div>
+
+<div class="container form-group">
+
+  <form th:action="@{/todo/searchm}" method="get">
+
+
+    <input class="form-control" type="text" name="mySearch" placeholder="Search in title.."
+           style='width: 300px;'/> <i class="fa fa-search"></i>
+
+    <input type="submit" value="Search" class="btn btn-primary mt-3"/>
+    <input type="button" onclick="location.href='/todo/';" value="Return to full list"
+           class="btn btn-primary mt-3"/>
   </form>
 </div>
+
 
 <div class="container">
 
@@ -66,6 +83,7 @@
         <th>isurgent</th>
         <th>isdone</th>
         <th>date</th>
+        <th>add assignee</th>
         <th>delete</th>
         <th>edit</th>
       </tr>
@@ -73,13 +91,25 @@
       <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}">Jill</td>
 
-        <td><a th:href="@{personal} +'/'+ ${todo.id}" th:text="${todo.title}">element</a></td>
+        <td><a th:href="@{/todo/personal} +'/'+ ${todo.id}" th:text="${todo.title}">element</a></td>
 
         <td th:text="${todo.isurgent}">Jill</td>
         <td th:text="${todo.isdone}">Jill</td>
         <td th:text="${todo.date}">Jill</td>
-        <td><a class="btn btn-default" th:href="@{/delete/} + ${todo.id}">delete</a></td>
-        <td><a class="btn btn-default" th:href="@{/edit/} + ${todo.id}">edit</a></td>
+        <td>
+          <form method="get">
+            <select id="select" name="assigneeid">
+              <option value="volvo" th:value="${assignee.id}" th:each="assignee : ${assignees}"
+                      th:text="${assignee.name}"></option>
+            </select>
+
+            <input type="submit" value="Add" class="btn btn-default"/>
+          </form>
+
+        </td>
+
+        <td><a class="btn btn-default" th:href="@{/todo/delete/} + ${todo.id}">delete</a></td>
+        <td><a class="btn btn-default" th:href="@{/todo/edit/} + ${todo.id}">edit</a></td>
 
       </tr>
       </tbody>
@@ -91,10 +121,10 @@
 
 <div class="container">
 
-  <a href="/addd" data-toggle="tooltip" data-placement="right">add
+  <a href="/todo/addd" data-toggle="tooltip" data-placement="right">add
     new todo</a>
 
-  <a href="/list" data-toggle="tooltip" data-placement="right" class="ml-3 mb-3">add
+  <a href="/todo/userlist" data-toggle="tooltip" data-placement="right" class="ml-3 mb-3">show
     list of assignees</a>
 
 </div>

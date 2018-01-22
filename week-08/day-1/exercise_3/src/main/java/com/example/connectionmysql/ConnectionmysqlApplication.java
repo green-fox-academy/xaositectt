@@ -1,7 +1,10 @@
 package com.example.connectionmysql;
 
+
+import com.example.connectionmysql.models.Assignee;
 import com.example.connectionmysql.models.Todo;
-import com.example.connectionmysql.repository.TodoRepo;
+import com.example.connectionmysql.services.AssigneeService;
+import com.example.connectionmysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,21 +14,35 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ConnectionmysqlApplication implements CommandLineRunner {
 
   @Autowired
-  TodoRepo todoRepo;
+  TodoService todoService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConnectionmysqlApplication.class, args);
-	}
+  @Autowired
+  AssigneeService assigneeService;
 
-	@Override
-	public void run(String... args) throws Exception {
+  public static void main(String[] args) {
+    SpringApplication.run(ConnectionmysqlApplication.class, args);
+  }
 
-    todoRepo.save(new Todo("cowshit", false, false));
-    todoRepo.save(new Todo("bullcrap", false, false));
-    todoRepo.save(new Todo("horseshit", false, false));
-    todoRepo.save(new Todo("chickenshit", false, true));
-    todoRepo.save(new Todo("dogshit", false, true));
-    todoRepo.save(new Todo("donkeycrap", false, true));
+  @Override
+  public void run(String... args) throws Exception {
 
-	}
+    Todo todo1 = new Todo("shit", false, false);
+    Todo todo2 = new Todo("crap", false, false);
+    Assignee assignee1 = new Assignee("snoop dogg", "snoop@dogg");
+    Assignee assignee2 = new Assignee("notorius big", "notorius@big");
+    Assignee assignee3 = new Assignee("2 pac", "2@pac");
+
+
+    assignee1.addTodo(todo1);
+    assignee1.addTodo(todo2);
+
+    assigneeService.create(assignee1);
+    assigneeService.create(assignee2);
+    assigneeService.create(assignee3);
+
+    todoService.create(todo1);
+    todoService.create(todo2);
+
+  }
+
 }
