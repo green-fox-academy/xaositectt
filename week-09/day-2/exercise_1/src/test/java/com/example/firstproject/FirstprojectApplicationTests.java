@@ -70,7 +70,6 @@ public class FirstprojectApplicationTests {
     )
         .andExpect(status().isOk())
         .andExpect(content().contentType("application/json;charset=UTF-8"))
-        //.andExpect(jsonPath("$.received", is(5)))
         .andExpect(jsonPath("$.result", is(15)));
   }
 
@@ -83,23 +82,47 @@ public class FirstprojectApplicationTests {
     )
         .andExpect(status().isOk())
         .andExpect(content().contentType("application/json;charset=UTF-8"))
-        //.andExpect(jsonPath("$.received", is(5)))
         .andExpect(jsonPath("$.result", is(6)));
   }
 
   @Test
-  public void testDoUntilFactorEndpoint() throws Exception {
+  public void testArraySumEndpoint() throws Exception {
     mockMvc.perform(
-        post("/dountil/sum")
+        post("/arrays")
             .contentType(MediaType.APPLICATION_JSON)
-            .content("{\"until\": 3}")
+            .content("{\"what\": \"sum\", \"numbers\": [1, 2, 5, 10]}")
     )
         .andExpect(status().isOk())
         .andExpect(content().contentType("application/json;charset=UTF-8"))
-        //.andExpect(jsonPath("$.received", is(5)))
-        .andExpect(jsonPath("$.result", is(6)));
+        .andExpect(jsonPath("$.result", is(18)));
   }
 
+  @Test
+  public void testArrayMultiplyEndpoint() throws Exception {
+    mockMvc.perform(
+        post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"what\": \"multiply\", \"numbers\": [1, 2, 5, 10]}")
+    )
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
+        .andExpect(jsonPath("$.result", is(100)));
+  }
+
+  @Test
+  public void testArrayDoubleEndpoint() throws Exception {
+
+    Integer[] myIntArray =  new Integer[]{2,4,10,20};
+
+    mockMvc.perform(
+        post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"what\": \"double\", \"numbers\": [1, 2, 5, 10]}")
+    )
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
+        .andExpect(jsonPath("$.result", is(myIntArray)));
+  }
 
 
 }

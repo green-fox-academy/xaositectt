@@ -2,20 +2,20 @@ package com.example.firstproject.models;
 
 public class ArrayHandlerDouble {
 
-  int[] result;
+  Integer[] result;
 
-  public ArrayHandlerDouble(int[] result) {
+  public ArrayHandlerDouble(Integer[] result) {
     this.result = result;
   }
 
   public ArrayHandlerDouble() {
   }
 
-  public int[] getResult() {
+  public Integer[] getResult() {
     return result;
   }
 
-  public void setResult(int[] result) {
+  public void setResult(Integer[] result) {
     this.result = result;
   }
 }

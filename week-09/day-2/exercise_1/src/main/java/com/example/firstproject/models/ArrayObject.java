@@ -1,11 +1,13 @@
 package com.example.firstproject.models;
 
+import java.util.Arrays;
+
 public class ArrayObject {
 
   String what;
-  int[] numbers;
+  Integer[] numbers;
 
-  public ArrayObject(String what, int[] numbers) {
+  public ArrayObject(String what, Integer[] numbers) {
     this.what = what;
     this.numbers = numbers;
   }
@@ -21,11 +23,11 @@ public class ArrayObject {
     this.what = what;
   }
 
-  public int[] getNumbers() {
+  public Integer[] getNumbers() {
     return numbers;
   }
 
-  public void setNumbers(int[] numbers) {
+  public void setNumbers(Integer[] numbers) {
     this.numbers = numbers;
   }
 
@@ -45,10 +47,15 @@ public class ArrayObject {
     return sum;
   }
 
-  public int[] doubleNumbers(){
+  public Integer[] doubleNumbers(){
     for (int i = 0; i < numbers.length; i++) {
       numbers[i] = numbers[i]*2;
     }
     return numbers;
+  }
+
+  @Override
+  public String toString(){
+    return "what : " + what + " numbers : " + Arrays.toString(numbers);
   }
 }

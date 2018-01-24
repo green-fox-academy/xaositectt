@@ -19,4 +19,9 @@ public class NewNumber {
   public void setUntil(Integer until) {
     this.until = until;
   }
+
+  @Override
+  public String toString(){
+    return "until : " + until.toString();
+  }
 }
