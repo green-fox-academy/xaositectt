@@ -1,6 +1,6 @@
 package com.example.firstproject.models;
 
-public class Appended implements  ResponseSomething{
+public class Appended {
 
   String appended;
 

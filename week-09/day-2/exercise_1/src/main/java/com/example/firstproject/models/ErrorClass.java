@@ -1,6 +1,6 @@
 package com.example.firstproject.models;
 
-public class ErrorClass implements ResponseSomething {
+public class ErrorClass {
 
   String error;
 

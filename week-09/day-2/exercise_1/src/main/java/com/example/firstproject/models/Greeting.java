@@ -1,6 +1,6 @@
 package com.example.firstproject.models;
 
-public class Greeting implements ResponseSomething {
+public class Greeting {
 
   String welcome_message;
 

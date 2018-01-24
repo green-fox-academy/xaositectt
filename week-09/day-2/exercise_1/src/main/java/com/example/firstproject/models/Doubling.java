@@ -1,6 +1,6 @@
 package com.example.firstproject.models;
 
-public class Doubling implements ResponseSomething{
+public class Doubling {
 
   int received;
   int result;
