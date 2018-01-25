@@ -1,6 +1,7 @@
 package com.example.firstproject.controllers;
 
 import static com.example.firstproject.models.Jedi.sithSpeak;
+import static com.example.firstproject.models.ToTranslate.translateFunny;
 
 import com.example.firstproject.models.Appended;
 import com.example.firstproject.models.ArrayHandlerDouble;
@@ -12,9 +13,12 @@ import com.example.firstproject.models.Factor;
 import com.example.firstproject.models.Greeting;
 import com.example.firstproject.models.Jedi;
 import com.example.firstproject.models.Log;
+import com.example.firstproject.models.Logs;
 import com.example.firstproject.models.NewNumber;
 import com.example.firstproject.models.NumberSum;
 import com.example.firstproject.models.Sith;
+import com.example.firstproject.models.ToTranslate;
+import com.example.firstproject.models.Translated;
 import com.example.firstproject.services.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -127,6 +131,30 @@ public class RestController1 {
       return sith;
     }
   }
+
+  @PostMapping(value = "/translate")
+  public Object translate(@RequestBody(required = false) ToTranslate toTranslate) {
+    if (toTranslate == null || toTranslate.getText().isEmpty()) {
+      return new ErrorClass("I can't translate that!");
+    } else {
+      String translatedText = translateFunny(toTranslate.getText(), "v");
+      String data = "text : " + toTranslate.getText() + ", lang: " + toTranslate.getLang();
+      Log log = new Log("/translate", data);
+      logService.save(log);
+      return new Translated(translatedText, "teve");
+    }
+  }
+
+  @GetMapping(value = "/log")
+  public Object showLog(@RequestParam(value = "count", required = false) Integer count,
+      @RequestParam(value = "count", required = false) Integer page) {
+    String data = "event: log call";
+    Log log = new Log("/log", data);
+    logService.save(log);
+    Logs logs= new Logs(logService.findAll(), logService.numberOfLogs());
+    return logs;
+  }
+
 
 
   public void saveArray(ArrayObject arrayObject, String method) {

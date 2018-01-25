@@ -26,7 +26,7 @@ public class SithTester {
       List<String> wordList = wordLister(sentence);
       List<String> adjustedWordList = listElementSwap(wordList);
       String adjustedSentence = wordListIntoSentence(adjustedWordList) + randomShitGenerator();
-      adjustedText =adjustedText + adjustedSentence;
+      adjustedText = adjustedText + adjustedSentence;
     }
     return adjustedText;
   }
@@ -47,19 +47,23 @@ public class SithTester {
     if (sentence.size() == 1) {
       swappedElements = sentence;
     } else if (sentence.size() % 2 == 0) {
-      for (int i = 0; i < sentence.size(); i = i + 2) {
-        swappedElements.add(sentence.get(i + 1));
-        swappedElements.add(sentence.get(i));
-      }
+      swappedElements = swapElements(sentence);
     } else {
-      for (int i = 0; i < sentence.size()-1; i = i + 2) {
-        swappedElements.add(sentence.get(i + 1));
-        swappedElements.add(sentence.get(i));
-      }
-      swappedElements.add(sentence.get(sentence.size()-1));
+      swappedElements = swapElements(sentence);
+      swappedElements.add(sentence.get(sentence.size() - 1));
     }
     return swappedElements;
   }
+
+  public static List<String> swapElements(List<String> inputList) {
+    List<String> swappedElements = new ArrayList<>();
+    for (int i = 0; i < inputList.size() - 1; i = i + 2) {
+      swappedElements.add(inputList.get(i + 1));
+      swappedElements.add(inputList.get(i));
+    }
+    return swappedElements;
+  }
+
 
   public static String wordListIntoSentence(List<String> wordList) {
     String sentence = "";
