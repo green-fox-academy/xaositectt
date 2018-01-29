@@ -11,6 +11,14 @@ public interface LogService {
 
   List<Log> findAll();
 
+
   int numberOfLogs();
+
+  List<Log> findLogsWhereDataContains(String input);
+
+  List<Log> findPageOfLogs(int pageSize, int pageNumber);
+
+  List<Log> findByIdAfter(int start);
+
 
 }

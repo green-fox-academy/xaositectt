@@ -41,7 +41,7 @@ public class Jedi {
   }
 
   public static List<String> wordLister(String text) {
-    List<String> wordArrayList = Arrays.asList(text.split(" "));
+    List<String> wordArrayList = Arrays.asList(text.split("\\s+"));
     return wordArrayList;
   }
 

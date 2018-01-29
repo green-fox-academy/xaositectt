@@ -148,14 +148,28 @@ public class RestController1 {
   @GetMapping(value = "/log")
   public Object showLog(@RequestParam(value = "count", required = false) Integer count,
       @RequestParam(value = "count", required = false) Integer page) {
-    String data = "event: log call";
-    Log log = new Log("/log", data);
-    logService.save(log);
-    Logs logs= new Logs(logService.findAll(), logService.numberOfLogs());
-    return logs;
+    if (count == null && page == null) {
+      String data = "event: full log call";
+      Log log = new Log("/log", data);
+      logService.save(log);
+      Logs logs = new Logs(logService.findAll(), logService.numberOfLogs());
+      return logs;
+//    } else if (count != null && page != null) {
+//      Logs logs = new Logs();
+//      logs.setLogOfEvents(logService.findPageOfLogs(count, page));
+//      logs.setNumberOfLogs(logService.numberOfLogs());
+//      return logs;
+    } else if (count != null && page == null) {
+      Logs logs = new Logs();
+      int logCount = logService.numberOfLogs();
+      int fromThis = logCount - count;
+      logs.setLogOfEvents(logService.findByIdAfter(fromThis));
+      logs.setNumberOfLogs(count);
+      return logs;
+    } else {
+      return new ErrorClass("Invalid request");
+    }
   }
-
-
 
   public void saveArray(ArrayObject arrayObject, String method) {
     String data = arrayObject.toString();
