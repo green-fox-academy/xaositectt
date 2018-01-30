@@ -1,4 +1,4 @@
-package com.example.exam2.models.dtos;
+package com.example.exam2.models;
 
 public class ProductData {
 

@@ -1,6 +1,6 @@
 package com.example.exam2.services;
 
-import com.example.exam2.models.entities.Product;
+import com.example.exam2.models.Product;
 import com.example.exam2.repositories.ProductRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +32,20 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public Product findOne(String name, String size) {
     return productRepository.findByItemNameAndSize(name, size);
+  }
+
+  @Override
+  public List<Product> findByPriceGreaterThan(int price) {
+    return productRepository.findByUnitPriceGreaterThan(price);
+  }
+
+  @Override
+  public List<Product> findByPriceLowerThan(int price) {
+    return productRepository.findByUnitPriceLessThan(price);
+  }
+
+  @Override
+  public List<Product> findByPriceEquals(int price) {
+    return productRepository.findByUnitPriceEquals(price);
   }
 }

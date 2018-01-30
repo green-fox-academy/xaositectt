@@ -1,7 +1,7 @@
 package com.example.exam2.controllers;
 
-import com.example.exam2.models.entities.Product;
 import com.example.exam2.models.ProductData;
+import com.example.exam2.models.Product;
 import com.example.exam2.services.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
