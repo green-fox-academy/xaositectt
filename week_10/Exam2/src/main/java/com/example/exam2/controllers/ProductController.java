@@ -35,7 +35,7 @@ public class ProductController {
     Product product = productService.findOne(productData.getName(), productData.getSize());
 
     int price = productData.getQuantity()*product.getUnitPrice();
-
+    //error handling if there is no such article!!
     model.addAttribute("quantity", productData.getQuantity());
     model.addAttribute("totalPrice", price);
     model.addAttribute("price", product.getUnitPrice());

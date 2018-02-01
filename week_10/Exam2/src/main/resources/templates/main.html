@@ -12,23 +12,18 @@
 <form th:action="@{/shoppingplanner/result}" th:object="${newProductData}" method="post">
 
   <select th:field="${newProductData.name}">
-    <option value="" th:value="${product.itemName}" th:each="product : ${productNames}"
+    <option th:value="${product.itemName}" th:each="product : ${productNames}"
             th:text="${product.itemName}"></option>
   </select>
 
   <select th:field="${newProductData.size}">
-    <option value="" th:value="${product.size}" th:each="product : ${productSizes}"
+    <option th:value="${product.size}" th:each="product : ${productSizes}"
             th:text="${product.size}"></option>
   </select>
 
   <input type="text" name="quantity" th:field="*{quantity}"/>
 
-
-
-
   <input type="submit" value="Add" class="btn-primary mt-3"/>
-
-
 
 </form>
 

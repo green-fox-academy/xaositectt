@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+
+
+</head>
+<body>
+
+<form th:action="@{/cars/}"  method="get">
+
+  <input type="text" name="q"/>
+
+  <input type="submit" value="Search"/>
+
+</form>
+
+<div th:if="${cars != null}">
+<table>
+  <tr>
+    <th>plate</th>
+    <th>carbrand</th>
+    <th>car_model</th>
+    <th>color</th>
+    <th>year</th>
+
+  </tr>
+  <tbody>
+
+  <a th:href="@{/cars?police=1}">find all police cars</a>
+  <a th:href="@{/cars?diplomat=1}">find all diplomat cars</a>
+
+  <tr th:each="car : ${cars}">
+
+    <td th:text="${car.plate}"></td>
+    <td><a  th:text="${car.carbrand}" th:href="@{'/cars/' + ${car.carbrand}}"></a></td>
+    <td th:text="${car.car_model}"></td>
+    <td th:text="${car.color}"></td>
+    <td th:text="${car.year}"></td>
+
+  </tr>
+  </tbody>
+
+</table>
+</div>
+<div th:if="${cars == null}">
+  <p>Invalid search or no result</p>
+</div>
+
+
+</body>
+</html>
