@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+</head>
+<body>
+
+
+<table>
+
+  <tr>
+    <th>questionString</th>
+    <th>myAnswer</th>
+  </tr>
+
+  <tr th:each="question : ${questions}">
+    <tbody>
+    <td th:text="${question.questionString}"></td>
+    <td th:text="${question.myAnswer.answer}"></td>
+    </tbody>
+  </tr>
+
+
+</table>
+
+<p th:text="${answer.answer}"></p>
+
+</body>
+</html>

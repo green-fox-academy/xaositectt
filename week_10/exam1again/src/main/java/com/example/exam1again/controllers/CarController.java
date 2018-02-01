@@ -23,15 +23,15 @@ public class CarController {
       Model model) {
     List<Car> cars;
     if (q == null && police == null && diplomat == null) {
-      cars = carService.findAllCars();
-    } else if (q != null && police == null && diplomat == null) {
-      cars = carService.findCarByPlate(q);
-    } else if (q == null && police != null && diplomat == null) {
-      cars = carService.findPoliceCars(police);
-    } else if (q == null && police == null && diplomat != null) {
-      cars = carService.findDiplomatCars(diplomat);
-    } else {
-      cars = null;
+        cars = carService.findAllCars();
+      } else if (q != null && police == null && diplomat == null) {
+        cars = carService.findCarByPlate(q);
+      } else if (q == null && police != null && diplomat == null) {
+        cars = carService.findPoliceCars(police);
+      } else if (q == null && police == null && diplomat != null) {
+        cars = carService.findDiplomatCars(diplomat);
+      } else {
+        cars = null;
     }
     model.addAttribute("cars", cars);
     return "main";

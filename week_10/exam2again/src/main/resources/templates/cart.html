@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+</head>
+<body>
+
+<table>
+
+  <tr>
+
+    <th>itemName</th>
+    <th>size</th>
+    <th>price</th>
+    <th>amount</th>
+    <th>total price</th>
+
+  </tr>
+
+  <tr>
+    <tbody>
+    <td th:text="${selected.itemName}"></td>
+    <td th:text="${selected.size}"></td>
+    <td th:text="${selected.unitPrice}"></td>
+    <td th:text="${clothAmount}"></td>
+    <td th:text="${totalPrice}"></td>
+
+    </tbody>
+  </tr>
+
+</table>
+
+</body>
+</html>

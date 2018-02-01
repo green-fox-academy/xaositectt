@@ -18,7 +18,7 @@ public class ProductController {
   ProductService productService;
 
   @GetMapping(value = "/shoppingplanner")
-  public String getAllDistinct(Model model, @ModelAttribute ProductData productData) {
+  public String getAllDistinct(Model model) {
     List<Product> products = productService.findAll();
     List<Product> productNames = productService.findAllDistinctName();
     List<Product> productSizes = productService.findAllDistinctSize();
